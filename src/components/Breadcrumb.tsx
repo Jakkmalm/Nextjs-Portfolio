@@ -42,14 +42,14 @@ export default function Breadcrumb({ backHref = '/', items }: BreadcrumbProps) {
         <nav className="flex items-center space-x-2 mb-8">
             <button
                 onClick={() => backHref ? router.push(backHref) : router.back()}
-                className="text-white-500 hover:underline"
+                className="text-white text-sm hover:underline cursor-pointer"
             >
                 ← Tillbaka
             </button>
             {items.map((it, i) => (
                 <span
                     key={i}
-                    className={i < items.length - 1 ? 'text-white-500 hover:underline cursor-pointer' : 'font-semibold'}
+                    className={i < items.length - 1 ? 'text-white text-sm hover:underline cursor-pointer' : 'text-purple-400 font-semibold'}
                     onClick={() => it.href && router.push(it.href)}
                 >
                     {it.label}

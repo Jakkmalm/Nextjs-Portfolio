@@ -443,7 +443,7 @@ export default function ProjectDetail({ project }: Props) {
 
     return (
         <AnimatedSection id="project-detail" className="py-16">
-            <div className="container mx-auto px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* Left Column: Info */}
                 <div className="space-y-6">
                     <h1 className="text-4xl font-bold text-white">{project.title}</h1>
@@ -451,11 +451,11 @@ export default function ProjectDetail({ project }: Props) {
 
                     {/* Stats Blocks */}
                     <div className="mt-6 flex gap-6">
-                        <div className="bg-white bg-opacity-10 p-4 rounded-lg text-center flex-1">
+                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
                             <p className="text-2xl font-bold text-white">{project.tags.length}</p>
                             <p className="mt-1 text-sm text-gray-300 uppercase">Technologies</p>
                         </div>
-                        <div className="bg-white bg-opacity-10 p-4 rounded-lg text-center flex-1">
+                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
                             <p className="text-2xl font-bold text-white">{keyFeatures.length}</p>
                             <p className="mt-1 text-sm text-gray-300 uppercase">Features</p>
                         </div>
@@ -478,7 +478,7 @@ export default function ProjectDetail({ project }: Props) {
                                 href={project.repoUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-6 py-2 border border-accent text-accent font-medium rounded-md hover:bg-accent/20 transition"
+                                className="px-6 py-2 border border-accent text-white font-medium rounded-md hover:bg-accent/20 transition"
                             >
                                 GitHub Repo
                             </a>
@@ -492,7 +492,7 @@ export default function ProjectDetail({ project }: Props) {
                             {project.tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="px-3 py-1 bg-white bg-opacity-10 text-white rounded-full text-sm"
+                                    className="px-3 py-1 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm"
                                 >
                                     {tag}
                                 </span>

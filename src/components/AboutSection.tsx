@@ -26,7 +26,7 @@ export default function AboutSection() {
                     <div className="flex flex-wrap gap-4">
                         <a
                             href="/path/to/CV.pdf"
-                            className="inline-block px-6 py-2 bg-accent text-black font-medium rounded-md hover:bg-accent/80 transition"
+                            className="inline-block px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/10 transition"
                         >
                             Download CV
                         </a>
