@@ -157,7 +157,7 @@ export function Hero() {
                     transition={{ delay: 1.2, duration: 0.6, ease: 'easeOut' }}
                 >
                     <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/10 rounded-2xl flex items-center justify-center">
-                        <span className="text-white/50">[Placeholder]</span>
+                        <span className="text-white/80">[Placeholder]</span>
                     </div>
                 </motion.div>
             </div>

@@ -17,10 +17,7 @@ export default function ProjectsTab() {
 
     return (
         <LazyMotion features={domAnimation}>
-            <m.div
-
-
-            >
+            <m.div>
                 <>
                     <TagChips tags={tags} activeTag={filter} onClick={setFilter} />
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
