@@ -2,7 +2,8 @@
 'use client';
 
 import React from 'react';
-import { m } from 'framer-motion';
+import Image from 'next/image';
+// import { m } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import { projects } from '../app/data/projects';
 
@@ -57,7 +58,7 @@ export default function AboutSection() {
                 <div className="flex justify-center lg:justify-end">
                     <div className="w-64 h-64 bg-gradient-to-br from-purple-600 to-blue-400 rounded-full overflow-hidden shadow-2xl">
                         {/* Avatar image placeholder */}
-                        <img
+                        <Image
                             src="/images/avatar.jpg"
                             alt="Jacob Malmberg"
                             className="w-full h-full object-cover"

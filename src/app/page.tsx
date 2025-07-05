@@ -4,7 +4,7 @@ import { Hero } from '../components/Hero';
 import Splash from '@/components/Splash';
 import AboutSection from '../components/AboutSection';
 import TabSection from '../components/TabSection';
-import ContactForm from '../components/ContactForm';
+// import ContactForm from '../components/ContactForm';
 import AnimatedSection from '../components/AnimatedSection';
 import { useScrollRestoration } from '@/hooks/useScrollRestoration'; // se tips nedan
 

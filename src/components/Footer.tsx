@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+// import { motion, Variants } from 'framer-motion';
 
 
 export default function Footer() {

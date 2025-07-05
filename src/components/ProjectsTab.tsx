@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
-import { staggerContainer } from '../lib/motions';
+// import { staggerContainer } from '../lib/motions';
 import { projects } from '../app/data/projects';
 import { TagChips } from './TagChips';
 import ProjectCard from './ProjectCard';
