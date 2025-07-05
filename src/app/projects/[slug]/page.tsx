@@ -5,14 +5,13 @@ import ProjectDetail from '../../../components/ProjectDetails'
 import { projects } from '../../data/projects'
 
 interface Props {
-  params: { slug: string } | Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }
 
 export default async function ProjectPage({ params }: Props) {
-  // 1. Vänta ut params
+  // Unwrap the params promise as per Next.js App Router requirements
   const { slug } = await params
 
-  // 2. Hitta projektet
   const project = projects.find(p => p.slug === slug)
   if (!project) return notFound()
 
@@ -28,3 +27,4 @@ export default async function ProjectPage({ params }: Props) {
     </main>
   )
 }
+
