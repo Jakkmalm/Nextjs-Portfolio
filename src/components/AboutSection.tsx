@@ -15,7 +15,7 @@ export default function AboutSection() {
                 <div className="space-y-6">
                     <p className="text-sm text-white uppercase tracking-widest">About Me</p>
                     <h2 className="text-4xl font-bold text-white">
-                        Hello, I'm Jacob Malmberg
+                        Hello, I&apos;m Jacob Malmberg
                     </h2>
                     <p className="text-md text-white leading-relaxed">
                         Jag är en passionerad frontend-utvecklare med fokus på att skapa
