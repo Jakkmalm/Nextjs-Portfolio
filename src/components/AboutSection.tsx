@@ -59,8 +59,10 @@ export default function AboutSection() {
                     <div className="w-64 h-64 bg-gradient-to-br from-purple-600 to-blue-400 rounded-full overflow-hidden shadow-2xl">
                         {/* Avatar image placeholder */}
                         <Image
-                            src="/images/avatar.jpg"
+                            src="/images/avatar.png"
                             alt="Jacob Malmberg"
+                            width={256}
+                            height={256}
                             className="w-full h-full object-cover"
                         />
                     </div>
