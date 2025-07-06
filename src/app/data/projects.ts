@@ -39,7 +39,7 @@ export const projects: Project[] = [
     slug: "dagens-lunch-guide",
     title: "Dagens Lunch Guide",
     description:
-      "BARA wpa sd a sd a sd a sd a sd  as d a sdasdasd asd a sd a sd a sss s  s s s s s  s s s s s ssssss sss sss ssss s s s s s  s s s s s s  s s s sssssssssssssssssssssssssssssssssssssssm sd a sd da",
+      "BARA wpa sd a sd a sd a sd a sd  as d a sdasdasd asd a sd a sd a sss s  s s s s s  s s s s s ssssss sss sss ssss s s s s s  s s s s s s  s s s ssssssssssssssm sd a sd da",
     thumbnail: "/images/dagenslunchguide-thumb.png",
     images: [
       "/images/dagenslunchguide-1.png",

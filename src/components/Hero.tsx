@@ -38,6 +38,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 
 
@@ -149,15 +150,21 @@ export function Hero() {
                     </motion.div>
                 </div>
 
-                {/* Högerkolumn med placeholder-bild */}
+                {/* Högerkolumn med bild */}
                 <motion.div
                     className="flex-1 flex justify-center lg:justify-end"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.2, duration: 0.6, ease: 'easeOut' }}
                 >
-                    <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/10 rounded-2xl flex items-center justify-center">
-                        <span className="text-white/80">[Placeholder]</span>
+                    <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl ">
+                        <Image
+                            src="/images/DevCube.png"
+                            alt="DevCube Logo"
+                            fill
+                            className="object-cover z-10 relative animate-neon-glow-pulse"
+                            priority // (valfritt, om bilden ska laddas direkt)
+                        />
                     </div>
                 </motion.div>
             </div>

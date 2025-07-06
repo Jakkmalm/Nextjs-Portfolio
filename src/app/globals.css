@@ -33,3 +33,64 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+/* Neon glow animation */
+
+/* 🔁 Animerar neon-glow-färger */
+@keyframes hue-spin {
+  0% {
+    filter: drop-shadow(0 0 12px #00f0ff) hue-rotate(0deg);
+  }
+  100% {
+    filter: drop-shadow(0 0 12px #00f0ff) hue-rotate(360deg);
+  }
+}
+
+/* 💓 Pulserande storlek */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03); /* lite tydligare puls */
+  }
+}
+
+/* 🔧 Kombinerad klass */
+.animate-neon-glow-pulse {
+  animation: hue-spin 6s linear infinite, pulse-slow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px #00f0ff) hue-rotate(0deg);
+}
+
+/* Skrivmaskin-effekt och blinkande markör */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.2em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
+
+@keyframes line-expand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 2.5rem;
+    opacity: 1;
+  }
+}
+
+.animate-line-expand {
+  animation: line-expand 0.4s ease-out forwards;
+}
