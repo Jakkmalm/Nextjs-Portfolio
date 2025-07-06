@@ -11,7 +11,7 @@ import { projects } from '../app/data/projects';
 
 export default function AboutSection() {
     return (
-        <AnimatedSection id="about" className="py-24">
+        <AnimatedSection id="about" className="py-24 min-h-screen">
             <div className="container mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Text & Buttons */}
                 <div className="space-y-6">

@@ -22,7 +22,7 @@ export default function AnimatedHeadline({ text }: AnimatedHeadlineProps) {
                     key={i}
                     className={`inline-block opacity-0 ${isInView ? 'animate-fade-in' : ''}`}
                     style={{
-                        animationDelay: `${i * 0.1}s`,
+                        animationDelay: `${i * 0.12}s`,
                         animationFillMode: "forwards",
                     }}
                 >

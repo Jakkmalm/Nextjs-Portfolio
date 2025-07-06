@@ -49,6 +49,7 @@ import { useState } from 'react';
 import ProjectsTab from './ProjectsTab';
 import TechTab from './TechTab';
 import OtherTab from './OtherTab';
+import AnimatedHeadline from './AnimatedHeadline';
 
 type TabKey = 'projects' | 'tech' | 'other';
 
@@ -64,8 +65,18 @@ export default function TabSection() {
   const activeIndex = tabs.findIndex(t => t.key === active);
 
   return (
-    <section id="showcase" className="py-16">
+    <section id="showcase" className="py-16 min-h-screen">
+
       <div className="container mx-auto px-8 lg:px-16">
+        {/* Rubrik */}
+        <AnimatedHeadline text="Showcase" />
+
+        {/* Introtext */}
+        <div className="mt-4 mb-10 max-w-2xl">
+          <p className="text-gray-300 text-md sm:text-lg leading-relaxed">
+            Här hittar du ett urval av mina projekt – med fokus på design, funktionalitet och teknik. Använd flikarna nedan för att utforska olika typer av arbete.
+          </p>
+        </div>
         {/* Tab buttons */}
         <div className="relative grid grid-cols-3 mb-6 p-3 bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden shadow-lg">
           {tabs.map((tab) => (
