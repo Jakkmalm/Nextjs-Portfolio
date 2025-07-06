@@ -1,7 +1,7 @@
 // src/components/AnimatedHeadline.tsx
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useInView } from 'framer-motion'
 
 interface AnimatedHeadlineProps {
