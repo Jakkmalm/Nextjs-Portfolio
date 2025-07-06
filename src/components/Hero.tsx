@@ -40,6 +40,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import AnimatedHeadline from './AnimatedHeadline';
 
 
 export function Hero() {
@@ -80,6 +81,7 @@ export function Hero() {
                         <p className="inline-block bg-white/10 text-sm text-white rounded-full px-3 py-1">
                             Ready to Innovate
                         </p>
+                        <AnimatedHeadline text="My Portfolio" />
                     </motion.div>
 
                     <motion.h1
