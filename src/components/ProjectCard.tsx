@@ -119,10 +119,10 @@ export default function ProjectCard({ project }: Props) {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative p-4 bg-white/10 bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg"
+            className="relative p-4 h-full flex flex-col bg-white/10 bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg"
         >
             {/* Project Image */}
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-66">
                 <Image
                     src={project.thumbnail}
                     alt={project.title}
@@ -132,19 +132,19 @@ export default function ProjectCard({ project }: Props) {
             </div>
 
             {/* Content */}
-            <div className="p-4 flex flex-col justify-between">
+            <div className="p-4 flex flex-col flex-1">
                 {/* Title & Description */}
-                <div>
+                <div className="flex-1">
                     <h3 className="text-xl font-semibold text-white mb-2">
                         {project.title}
                     </h3>
-                    <p className="text-gray-300 text-sm line-clamp-3 mb-4">
+                    <p className="text-gray-300 text-sm line-clamp-2 mb-4">
                         {project.description}
                     </p>
                 </div>
 
                 {/* Footer: Stats & Links */}
-                <div className="flex items-center justify-between mt-4">
+                <div className="flex items-end justify-between mt-4">
                     {/* Live Demo Link (conditional) */}
                     {project.liveUrl ? (
                         <a

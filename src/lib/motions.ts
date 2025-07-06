@@ -37,7 +37,7 @@ export const blobVariant1 = {
     x: [0, 20, 0],
     y: [0, -20, 0],
     scale: [1, 1.1, 1],
-    transition: { duration: 10, ease, repeat: Infinity, repeatType: 'mirror' },
+    transition: { duration: 10, ease, repeat: Infinity, repeatType: "mirror" },
   },
 };
 
@@ -47,7 +47,7 @@ export const blobVariant2 = {
     x: [0, -15, 0],
     y: [0, 15, 0],
     scale: [1, 1.05, 1],
-    transition: { duration: 12, ease, repeat: Infinity, repeatType: 'mirror' },
+    transition: { duration: 12, ease, repeat: Infinity, repeatType: "mirror" },
   },
 };
 
