@@ -525,7 +525,7 @@ export default function ProjectDetail({ project }: Props) {
                                     key={idx}
                                     className="flex-shrink-0 snap-center w-full h-100 rounded-lg overflow-hidden shadow-lg bg-black-20 relative"
                                 >
-                                    <Image src={img} alt={`${project.title} screenshot ${idx + 1}`} fill className="object-cover" />
+                                    <Image src={img} alt={`${project.title} screenshot ${idx + 1}`} fill className="object-cover transition:transform duration-600 hover:scale-105" />
                                 </div>
                             ))}
                         </div>
