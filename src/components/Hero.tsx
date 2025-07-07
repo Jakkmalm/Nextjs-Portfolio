@@ -70,9 +70,9 @@ export function Hero() {
 
     return (
         <section id='hero' className="relative min-h-screen overflow-hidden flex items-center">
-            <div className="container mx-auto px-8 lg:px-16 flex flex-col lg:flex-row items-center lg:items-start gap-12">
+            <div className="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col lg:flex-row items-center lg:items-start gap-12">
                 {/* Vänsterkolumn */}
-                <div className="flex-1 space-y-6 text-center lg:text-left">
+                <div className="flex-1 space-y-6 lg:text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}

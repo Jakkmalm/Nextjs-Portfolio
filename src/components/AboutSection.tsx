@@ -12,7 +12,7 @@ import { projects } from '../app/data/projects';
 export default function AboutSection() {
     return (
         <AnimatedSection id="about" className="py-24 min-h-screen">
-            <div className="container mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Text & Buttons */}
                 <div className="space-y-6">
                     <AnimatedHeadline text="About Me" />
@@ -43,19 +43,19 @@ export default function AboutSection() {
                     <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
                             <p className="text-3xl font-bold text-white">
-                                <AnimatedCounter to={projects.length} delay={200} duration={500}/>
+                                <AnimatedCounter to={projects.length} delay={200} duration={500} />
                             </p>
                             <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
                         </div>
                         <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
                             <p className="text-3xl font-bold text-white">
-                                <AnimatedCounter to={projects.length} delay={500} duration={500}/>
+                                <AnimatedCounter to={projects.length} delay={500} duration={500} />
                             </p>
                             <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
                         </div>
                         <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
                             <p className="text-3xl font-bold text-white">
-                                <AnimatedCounter to={projects.length} delay={1000} duration={500}/>
+                                <AnimatedCounter to={projects.length} delay={1000} duration={500} />
                             </p>
                             <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
                         </div>

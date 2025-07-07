@@ -44,7 +44,7 @@ export default function Page() {
 
   return (
     <main className="flex flex-col 
-                   bg-[#050114] 
+                   bg-[#050114]
               ">
 
       <section id="hero"><Hero /></section>

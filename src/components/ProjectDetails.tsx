@@ -443,9 +443,9 @@ export default function ProjectDetail({ project }: Props) {
 
     return (
         <AnimatedSection id="project-detail" className="py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 md:grid-cols-2 md:gap-16">
                 {/* Left Column: Info */}
-                <div className="space-y-6">
+                <div className="space-y-6 md:space-y-10">
                     <h1 className="text-4xl font-bold text-white">{project.title}</h1>
                     <p className="text-lg text-gray-300 leading-relaxed">{project.description}</p>
 
@@ -523,7 +523,7 @@ export default function ProjectDetail({ project }: Props) {
                             {images.map((img, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex-shrink-0 snap-center w-full h-100 rounded-lg overflow-hidden shadow-lg bg-black relative"
+                                    className="flex-shrink-0 snap-center w-full h-100 rounded-lg overflow-hidden shadow-lg bg-black-20 relative"
                                 >
                                     <Image src={img} alt={`${project.title} screenshot ${idx + 1}`} fill className="object-cover" />
                                 </div>

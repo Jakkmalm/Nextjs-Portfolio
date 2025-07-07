@@ -39,7 +39,7 @@ export default function Breadcrumb({ backHref = '/', items }: BreadcrumbProps) {
     const router = useRouter()
 
     return (
-        <nav className="flex items-center space-x-2 mb-8">
+        <nav className="flex items-center space-x-2 mb-8 md:space-x-4 md:mb-12">
             <button
                 onClick={() => backHref ? router.push(backHref) : router.back()}
                 className="text-white text-sm hover:underline cursor-pointer"
