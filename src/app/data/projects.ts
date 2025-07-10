@@ -134,7 +134,7 @@ export const techStack: Tech[] = [
   {
     id: "tailwind",
     name: "Tailwind CSS",
-    icon: "/icons/Tailwind CSS.svg",
+    icon: "/icons/Tailwind-CSS.svg",
   },
   {
     id: "typescript",
