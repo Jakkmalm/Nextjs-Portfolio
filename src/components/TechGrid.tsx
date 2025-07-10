@@ -11,7 +11,7 @@ export function TechGrid() {
           <div className="h-12 w-12 relative">
             <Image src={t.icon} alt={t.name} fill className="object-contain" />
           </div>
-          <span className="mt-2 text-sm text-center">{t.name}</span>
+          <span className="mt-2 text-sm text-white text-center">{t.name}</span>
         </div>
       ))}
     </div>

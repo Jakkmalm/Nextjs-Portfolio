@@ -57,9 +57,9 @@ export default function TabSection() {
   const [active, setActive] = useState<TabKey>('projects');
 
   const tabs: { key: TabKey; label: string }[] = [
-    { key: 'projects', label: 'Projects' },
-    { key: 'tech', label: 'Certificates' },
-    { key: 'other', label: 'Tech Stack' },
+    { key: 'projects', label: 'Projekt' },
+    { key: 'tech', label: 'Erfarenhet' },
+    { key: 'other', label: 'Övrigt' },
   ];
 
   const activeIndex = tabs.findIndex(t => t.key === active);

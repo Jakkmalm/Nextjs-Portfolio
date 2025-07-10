@@ -124,37 +124,37 @@ export const techStack: Tech[] = [
   {
     id: "nextjs",
     name: "Next.js",
-    icon: "/icons/next.js.svg",
+    icon: "/icons/Next.js.svg",
   },
   {
     id: "react",
     name: "React",
-    icon: "/icons/react.svg",
+    icon: "/icons/React.svg",
   },
   {
     id: "tailwind",
     name: "Tailwind CSS",
-    icon: "/icons/tailwind CSS.svg",
+    icon: "/icons/Tailwind CSS.svg",
   },
   {
     id: "typescript",
     name: "TypeScript",
-    icon: "/icons/typescript.svg",
+    icon: "/icons/TypeScript.svg",
   },
   {
     id: "nodejs",
     name: "Node.js",
-    icon: "/icons/node.js.svg",
+    icon: "/icons/Node.js.svg",
   },
   {
     id: "mysql",
     name: "MySQL",
-    icon: "/icons/mySQL.svg",
+    icon: "/icons/MySQL.svg",
   },
   {
     id: "wordpress",
     name: "WordPress",
-    icon: "/icons/wordpress.svg",
+    icon: "/icons/WordPress.svg",
   },
   {
     id: "php",
