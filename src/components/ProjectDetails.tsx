@@ -451,18 +451,18 @@ export default function ProjectDetail({ project }: Props) {
 
                     {/* Stats Blocks */}
                     <div className="mt-6 flex gap-6">
-                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
+                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
                             <p className="text-2xl font-bold text-white">{project.tags.length}</p>
                             <p className="mt-1 text-sm text-gray-300 uppercase">Technologies</p>
                         </div>
-                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
+                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
                             <p className="text-2xl font-bold text-white">{keyFeatures.length}</p>
                             <p className="mt-1 text-sm text-gray-300 uppercase">Features</p>
                         </div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="mt-6 flex flex-wrap gap-4">
+                    <div className="mt-6 flex flex-wrap gap-4 ">
                         {project.liveUrl && (
                             <a
                                 href={project.liveUrl}
@@ -492,7 +492,7 @@ export default function ProjectDetail({ project }: Props) {
                             {project.tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="px-3 py-1 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm"
+                                    className="hover-star-border px-3 py-1 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm"
                                 >
                                     {tag}
                                 </span>

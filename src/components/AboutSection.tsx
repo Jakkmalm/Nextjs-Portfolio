@@ -41,19 +41,19 @@ export default function AboutSection() {
                     </div>
                     {/* Stats Cards */}
                     <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
+                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
                             <p className="text-3xl font-bold text-white">
                                 <AnimatedCounter to={projects.length} delay={200} duration={500} />
                             </p>
                             <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
                         </div>
-                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
+                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
                             <p className="text-3xl font-bold text-white">
                                 <AnimatedCounter to={projects.length} delay={500} duration={500} />
                             </p>
                             <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
                         </div>
-                        <div className="bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
+                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center">
                             <p className="text-3xl font-bold text-white">
                                 <AnimatedCounter to={projects.length} delay={1000} duration={500} />
                             </p>

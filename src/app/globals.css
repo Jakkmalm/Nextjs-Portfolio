@@ -94,3 +94,50 @@ body {
 .animate-line-expand {
   animation: line-expand 0.4s ease-out forwards;
 }
+
+/* hover-animation */
+.hover-star-border {
+  position: relative;
+  /* border-radius: 1rem; */
+  z-index: 0;
+}
+
+.hover-star-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    #00ffff,
+    #8f00ff,
+    #00ffff,
+    transparent
+  );
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  animation: border-glow-spin 2s linear infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hover-star-border:hover::before {
+  opacity: 1;
+  filter: blur(8px);
+}
+
+@keyframes border-glow-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}

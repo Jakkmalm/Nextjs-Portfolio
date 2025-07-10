@@ -73,7 +73,7 @@ export default function TabSection() {
 
         {/* Introtext */}
         <div className="mt-4 mb-10 max-w-2xl">
-          <p className="text-gray-300 text-md sm:text-lg leading-relaxed">
+          <p className="text-white text-md sm:text-lg leading-relaxed">
             Här hittar du ett urval av mina projekt – med fokus på design, funktionalitet och teknik. Använd flikarna nedan för att utforska olika typer av arbete.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function TabSection() {
             <button
               key={tab.key}
               onClick={() => setActive(tab.key)}
-              className={`py-5 text-center font-medium transition-colors duration-300 ${active === tab.key ? 'bg-white/20 backdrop-blur-sm text-white' : 'text-gray-500 hover:text-white'
+              className={`hover:cursor-pointer hover-star-border rounded-2xl py-5 text-center font-medium mx-2 transition-colors duration-300 ${active === tab.key ? 'rounded-2xl bg-white/20 backdrop-blur-sm text-white' : 'text-gray-500 hover:text-white hover:bg-white/10 backdrop-blur-sm'
                 }`}
             >
               {tab.label}
