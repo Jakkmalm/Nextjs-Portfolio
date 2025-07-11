@@ -506,7 +506,8 @@ export default function ProjectDetail({ project }: Props) {
 
                     <div className="hover-star-border relative w-full h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                         <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <img
+                        <Image
+                            fill
                             src={project.thumbnail}
                             alt={project.title}
                             className="h-full w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
