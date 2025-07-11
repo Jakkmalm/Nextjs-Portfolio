@@ -410,7 +410,7 @@ interface Props {
 
 export default function ProjectDetail({ project }: Props) {
     const carouselRef = useRef<HTMLDivElement>(null);
-    const [scrollPercent, setScrollPercent] = useState(0);
+    // const [scrollPercent, setScrollPercent] = useState(0);
 
     const keyFeatures = [
         'Customize the message content as needed',
@@ -420,26 +420,26 @@ export default function ProjectDetail({ project }: Props) {
     ];
 
     const images = project.images ?? [project.thumbnail];
-    const hasMultiple = images.length > 1;
+    // const hasMultiple = images.length > 1;
 
     // Update scroll indicator
-    const handleScroll = () => {
-        const el = carouselRef.current;
-        if (el) {
-            const percent = (el.scrollLeft / (el.scrollWidth - el.clientWidth)) * 100;
-            setScrollPercent(percent);
-        }
-    };
+    // const handleScroll = () => {
+    //     const el = carouselRef.current;
+    //     if (el) {
+    //         const percent = (el.scrollLeft / (el.scrollWidth - el.clientWidth)) * 100;
+    //         setScrollPercent(percent);
+    //     }
+    // };
 
-    useEffect(() => {
-        const el = carouselRef.current;
-        if (el) {
-            el.addEventListener('scroll', handleScroll, { passive: true });
-            // initialize
-            handleScroll();
-            return () => { el.removeEventListener('scroll', handleScroll); };
-        }
-    }, []);
+    // useEffect(() => {
+    //     const el = carouselRef.current;
+    //     if (el) {
+    //         el.addEventListener('scroll', handleScroll, { passive: true });
+    //         // initialize
+    //         handleScroll();
+    //         return () => { el.removeEventListener('scroll', handleScroll); };
+    //     }
+    // }, []);
 
     return (
         <AnimatedSection id="project-detail" className="relative z-10 py-16">
