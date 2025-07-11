@@ -442,7 +442,7 @@ export default function ProjectDetail({ project }: Props) {
     }, []);
 
     return (
-        <AnimatedSection id="project-detail" className="py-16">
+        <AnimatedSection id="project-detail" className="relative z-10 py-16">
             <div className="grid lg:grid-cols-2 gap-8 md:grid-cols-2 md:gap-16">
                 {/* Left Column: Info */}
                 <div className="space-y-6 md:space-y-10">
@@ -456,8 +456,8 @@ export default function ProjectDetail({ project }: Props) {
                             <p className="mt-1 text-sm text-gray-300 uppercase">Technologies</p>
                         </div>
                         <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
-                            <p className="text-2xl font-bold text-white">{keyFeatures.length}</p>
-                            <p className="mt-1 text-sm text-gray-300 uppercase">Features</p>
+                            <p className="text-2xl font-bold text-white">{project.insights?.length}</p>
+                            <p className="mt-1 text-sm text-gray-300 uppercase">Insights</p>
                         </div>
                     </div>
 
@@ -487,7 +487,7 @@ export default function ProjectDetail({ project }: Props) {
 
                     {/* Technologies Used */}
                     <div className="mt-8">
-                        <h2 className="text-2xl font-semibold text-white mb-4">Technologies Used</h2>
+                        <h2 className="text-2xl font-semibold text-white mb-4">Teknologier</h2>
                         <div className="flex flex-wrap gap-2">
                             {project.tags.map((tag) => (
                                 <span
@@ -503,8 +503,20 @@ export default function ProjectDetail({ project }: Props) {
 
                 {/* Right Column: Carousel & Key Features */}
                 <div className="space-y-8">
+
+                    <div className="hover-star-border relative w-full h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <img
+                            src={project.thumbnail}
+                            alt={project.title}
+                            className="h-full w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+                        />
+
+                        <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl"></div>
+                    </div>
+
                     {/* Carousel */}
-                    <div className="relative">
+                    {/* <div className="relative">
                         {hasMultiple && (
                             <button
                                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 transition"
@@ -542,7 +554,7 @@ export default function ProjectDetail({ project }: Props) {
                         )}
 
                         {/* Scroll Indicator */}
-                        {hasMultiple && (
+                    {/* {hasMultiple && (
                             <div className="mt-2 h-1 bg-white bg-opacity-20 rounded overflow-hidden">
                                 <div
                                     className="h-1 bg-accent rounded"
@@ -550,7 +562,7 @@ export default function ProjectDetail({ project }: Props) {
                                 />
                             </div>
                         )}
-                    </div>
+                    </div>  */}
 
                     {/* Key Features List */}
                     <div>

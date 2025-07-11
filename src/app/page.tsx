@@ -48,8 +48,8 @@ export default function Page() {
               ">
 
       <section id="hero"><Hero /></section>
-      <AnimatedSection id="about"><AboutSection /></AnimatedSection>
-      <TabSection />           {/* Projects / Tech / Other */}
+      <AnimatedSection id="about" className='relative z-10'><AboutSection /></AnimatedSection>
+      <AnimatedSection id='tab-section' className='relative z-10'><TabSection /></AnimatedSection>           {/* Projects / Tech / Other */}
       {/* <section id="contact"><ContactForm/></section> */}
     </main>
   );

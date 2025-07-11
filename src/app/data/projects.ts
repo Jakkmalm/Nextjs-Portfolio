@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   thumbnail: string;
   images?: string[]; // Array of image URLs for project gallery
+  insights?: string[]; // Array of insights or features
   liveUrl?: string;
   repoUrl?: string;
   tags: string[];
@@ -32,23 +33,29 @@ export const projects: Project[] = [
     thumbnail: "/images/portfolio-thumb.png",
     images: ["/images/portfolio-2.png", "/images/portfolio-3.png"],
     tags: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://jacob-portfolio.vercel.app",
-    repoUrl: "https://github.com/jacobost/portfolio-nextjs",
+    liveUrl: "https://nextjs-portfolio-kappa-umber-96.vercel.app/",
+    repoUrl: "https://github.com/Jakkmalm/Nextjs-Portfolio",
   },
   {
-    slug: "dagens-lunch-guide",
-    title: "Dagens Lunch Guide",
+    slug: "dagens-lunchmeny",
+    title: "Dagens Lunchmeny",
     description:
-      "BARA wpa sd a sd a sd a sd a sd  as d a sdasdasd asd a sd a sd a sss s  s s s s s  s s s s s ssssss sss sss ssss s s s s s  s s s s s s  s s s ssssssssssssssm sd a sd da",
-    thumbnail: "/images/dagenslunchguide-thumb.png",
+      "En användarvänlig lunchguide där besökare snabbt kan hitta dagens menyer från lokala restauranger – filtrerat per stad och veckodag. Byggd i WordPress med skräddarsydd funktionalitet för att leverera snabb, mobilanpassad och överskådlig information.",
+    thumbnail: "/images/dagenslunchmeny-thumb.png",
     images: [
-      "/images/dagenslunchguide-1.png",
-      "/images/dagenslunchguide-2.png",
-      "/images/dagenslunchguide-3.png",
+      // "/images/dagenslunchguide-1.png",
+      // "/images/dagenslunchguide-2.png",
+      // "/images/dagenslunchguide-3.png",
+    ],
+    insights: [
+      "Skapat datumbaserad menylogik i PHP för veckomenyer",
+      "Använt AJAX i WordPress för sömlös menyuppladdning",
+      "Förståelse för WordPress-temastruktur och custom post types",
+      "Responsiv designanpassning med mobilanvändaren i fokus",
     ],
     tags: ["WordPress", "PHP", "MySQL", "AJAX", "JavaScript"],
     liveUrl: "https://dagenslunchmeny.se",
-    repoUrl: "lägger till senare",
+    // repoUrl: "lägger till senare",
   },
   {
     slug: "restaurang-dashboard",

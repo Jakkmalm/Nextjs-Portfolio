@@ -10,7 +10,7 @@ interface TagChipsProps {
 
 export const TagChips: React.FC<TagChipsProps> = ({ tags, activeTag, onClick }) => {
     return (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-5">
             {tags.map(tag => (
                 <button
                     key={tag}
@@ -19,8 +19,8 @@ export const TagChips: React.FC<TagChipsProps> = ({ tags, activeTag, onClick }) 
             px-3 py-1 rounded-full text-sm border
             transition
             ${tag === activeTag
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-white text-gray-700 hover:bg-gray-100'}
+                            ? 'hover-star-border bg-indigo-400 text-white border-none'
+                            : 'hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg text-white border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm'}
           `}
                 >
                     {tag}

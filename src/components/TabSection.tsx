@@ -50,16 +50,17 @@ import ProjectsTab from './ProjectsTab';
 import TechTab from './TechTab';
 import OtherTab from './OtherTab';
 import AnimatedHeadline from './AnimatedHeadline';
+import { BriefcaseBusiness, Cpu, Sparkles } from '../lib/icons';
 
 type TabKey = 'projects' | 'tech' | 'other';
 
 export default function TabSection() {
   const [active, setActive] = useState<TabKey>('projects');
 
-  const tabs: { key: TabKey; label: string }[] = [
-    { key: 'projects', label: 'Projekt' },
-    { key: 'tech', label: 'Erfarenhet' },
-    { key: 'other', label: 'Övrigt' },
+  const tabs: { key: TabKey; label: string; icon: React.ElementType }[] = [
+    { key: 'projects', label: 'Projekt', icon: BriefcaseBusiness },
+    { key: 'tech', label: 'Erfarenhet', icon: Cpu },
+    { key: 'other', label: 'Övrigt', icon: Sparkles },
   ];
 
   const activeIndex = tabs.findIndex(t => t.key === active);
@@ -78,14 +79,19 @@ export default function TabSection() {
           </p>
         </div>
         {/* Tab buttons */}
-        <div className="relative grid grid-cols-3 mb-6 p-3 bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative grid grid-cols-3 mb-6 p-3  border border-white/20 rounded-2xl overflow-hidden shadow-lg">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActive(tab.key)}
-              className={`hover:cursor-pointer hover-star-border rounded-2xl py-5 text-center font-medium mx-2 transition-colors duration-300 ${active === tab.key ? 'rounded-2xl bg-white/20 backdrop-blur-sm text-white' : 'text-gray-500 hover:text-white hover:bg-white/10 backdrop-blur-sm'
+              className={`hover:cursor-pointer hover-star-border rounded-2xl py-5 text-center font-bold mx-2 transition-colors duration-300 ${active === tab.key ? 'rounded-2xl  text-white' : 'text-gray-500 hover:text-white hover:bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg'
                 }`}
             >
+              <tab.icon
+                size={18}
+                color={active === tab.key ? '#00C6FF' : '#9CA3AF'} // accent vs gray-400
+                className="mx-auto mb-1 transition-colors duration-300"
+              />
               {tab.label}
             </button>
           ))}

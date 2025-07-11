@@ -72,13 +72,13 @@ export default function Splash({ onContinue }: SplashProps) {
                         variants={wordUpVariants}
                         className="inline-block text-5xl font-bold text-white mr-2"
                     >
-                        Welcome
+                        Välkommen
                     </motion.span>
                     <motion.span
                         variants={wordUpVariants}
                         className="inline-block text-5xl font-bold text-white"
                     >
-                        to
+                        till
                     </motion.span>
                 </div>
 
@@ -88,7 +88,7 @@ export default function Splash({ onContinue }: SplashProps) {
                         variants={leftSlideVariants}
                         className="inline-block text-5xl font-bold text-white mr-2"
                     >
-                        My
+                        Min
                     </motion.span>
                     <motion.span
                         variants={rightSlideVariants}

@@ -49,7 +49,7 @@ export default function Breadcrumb({ backHref = '/', items }: BreadcrumbProps) {
             {items.map((it, i) => (
                 <span
                     key={i}
-                    className={i < items.length - 1 ? 'text-white text-sm hover:underline cursor-pointer' : 'text-purple-400 font-semibold'}
+                    className={i < items.length - 1 ? 'text-white text-sm' : 'text-purple-400 font-semibold'}
                     onClick={() => it.href && router.push(it.href)}
                 >
                     {it.label}

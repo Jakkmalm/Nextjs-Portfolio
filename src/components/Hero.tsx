@@ -78,10 +78,10 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, ease: 'easeOut' }}
                     >
-                        <p className="inline-block bg-white/10 text-sm text-white rounded-full px-3 py-1">
+                        {/* <p className="inline-block bg-white/10 text-sm text-white rounded-full px-3 py-1">
                             Ready to Innovate
-                        </p>
-                        <AnimatedHeadline text="My Portfolio" />
+                        </p> */}
+                        <AnimatedHeadline text="Jacob Malmberg" />
                     </motion.div>
 
                     <motion.h1
@@ -98,7 +98,7 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
                     >
-                        Developer
+                        Utvecklare
                     </motion.p>
 
                     <motion.p

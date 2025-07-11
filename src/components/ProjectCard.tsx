@@ -102,6 +102,7 @@
 'use client';
 
 import React from 'react';
+import { SquareArrowOutUpRight } from '../lib/icons'
 import Link from 'next/link';
 import Image from 'next/image';
 import { m } from 'framer-motion';
@@ -151,9 +152,9 @@ export default function ProjectCard({ project }: Props) {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-white underline hover:text-accent/80"
+                            className="text-sm text-white hover:text-white transition flex items-center gap-1"
                         >
-                            Live Demo ↗
+                            Live Demo <SquareArrowOutUpRight size={16} />
                         </a>
                     ) : (
                         <span className="text-sm text-white italic">No Live Demo</span>

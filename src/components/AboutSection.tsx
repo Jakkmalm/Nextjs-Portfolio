@@ -12,12 +12,12 @@ import { projects } from '../app/data/projects';
 export default function AboutSection() {
     return (
         <AnimatedSection id="about" className="py-24 min-h-screen">
-            <div className="container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="container  mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Text & Buttons */}
                 <div className="space-y-6">
                     <AnimatedHeadline text="About Me" />
                     <h2 className="text-4xl font-bold text-white">
-                        Hello, I&apos;m Jacob Malmberg
+                        Hej, jag heter Jacob Malmberg
                     </h2>
                     <p className="text-md text-white leading-relaxed">
                         Jag är en passionerad frontend-utvecklare med fokus på att skapa
