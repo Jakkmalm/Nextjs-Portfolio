@@ -567,7 +567,7 @@ export default function ProjectDetail({ project }: Props) {
 
                     {/* Key Features List */}
                     <div>
-                        <h2 className="text-2xl font-semibold text-white mb-4">Key Features</h2>
+                        <h2 className="text-2xl font-semibold text-white mb-4">Utmaningar</h2>
                         <ul className="list-disc list-inside space-y-2 text-gray-200">
                             {project.insights?.map((feat, idx) => (
                                 <li key={idx}>{feat}</li>
