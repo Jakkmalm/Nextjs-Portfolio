@@ -399,7 +399,7 @@
 // src/components/ProjectDetail.tsx
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from './AnimatedSection';
 import { Project } from '../app/data/projects';
