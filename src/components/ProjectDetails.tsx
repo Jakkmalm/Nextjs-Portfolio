@@ -412,14 +412,14 @@ export default function ProjectDetail({ project }: Props) {
     // const carouselRef = useRef<HTMLDivElement>(null);
     // const [scrollPercent, setScrollPercent] = useState(0);
 
-    const keyFeatures = [
-        'Customize the message content as needed',
-        'Send messages to multiple Discord channels simultaneously',
-        'Set custom delay intervals between messages',
-        'Runs non-stop with efficient resource usage',
-    ];
+    // const keyFeatures = [
+    //     'Customize the message content as needed',
+    //     'Send messages to multiple Discord channels simultaneously',
+    //     'Set custom delay intervals between messages',
+    //     'Runs non-stop with efficient resource usage',
+    // ];
 
-    const images = project.images ?? [project.thumbnail];
+    // const images = project.images ?? [project.thumbnail];
     // const hasMultiple = images.length > 1;
 
     // Update scroll indicator
@@ -569,7 +569,7 @@ export default function ProjectDetail({ project }: Props) {
                     <div>
                         <h2 className="text-2xl font-semibold text-white mb-4">Key Features</h2>
                         <ul className="list-disc list-inside space-y-2 text-gray-200">
-                            {keyFeatures.map((feat, idx) => (
+                            {project.insights?.map((feat, idx) => (
                                 <li key={idx}>{feat}</li>
                             ))}
                         </ul>
