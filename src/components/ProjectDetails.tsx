@@ -409,7 +409,7 @@ interface Props {
 }
 
 export default function ProjectDetail({ project }: Props) {
-    const carouselRef = useRef<HTMLDivElement>(null);
+    // const carouselRef = useRef<HTMLDivElement>(null);
     // const [scrollPercent, setScrollPercent] = useState(0);
 
     const keyFeatures = [
