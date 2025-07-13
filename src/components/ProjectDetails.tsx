@@ -401,6 +401,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { Github } from '../lib/icons';
 import AnimatedSection from './AnimatedSection';
 import { Project } from '../app/data/projects';
 
@@ -453,11 +454,11 @@ export default function ProjectDetail({ project }: Props) {
                     <div className="mt-6 flex gap-6">
                         <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
                             <p className="text-2xl font-bold text-white">{project.tags.length}</p>
-                            <p className="mt-1 text-sm text-gray-300 uppercase">Technologies</p>
+                            <p className="mt-1 text-sm text-gray-300 uppercase">Tekniker</p>
                         </div>
                         <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
-                            <p className="text-2xl font-bold text-white">{project.insights?.length}</p>
-                            <p className="mt-1 text-sm text-gray-300 uppercase">Insights</p>
+                            <p className="text-2xl font-bold text-white">{project.features?.length}</p>
+                            <p className="mt-1 text-sm text-gray-300 uppercase">Funktioner</p>
                         </div>
                     </div>
 
@@ -480,14 +481,14 @@ export default function ProjectDetail({ project }: Props) {
                                 rel="noopener noreferrer"
                                 className="px-6 py-2 border border-accent text-white font-medium rounded-md hover:bg-accent/20 transition"
                             >
-                                GitHub Repo
-                            </a>
+                                GitHub Repo <Github size={16}/>
+                            </a> 
                         )}
                     </div>
 
                     {/* Technologies Used */}
                     <div className="mt-8">
-                        <h2 className="text-2xl font-semibold text-white mb-4">Teknologier</h2>
+                        <h2 className="text-2xl font-semibold text-white mb-4">Tekniker</h2>
                         <div className="flex flex-wrap gap-2">
                             {project.tags.map((tag) => (
                                 <span
@@ -567,9 +568,9 @@ export default function ProjectDetail({ project }: Props) {
 
                     {/* Key Features List */}
                     <div>
-                        <h2 className="text-2xl font-semibold text-white mb-4">Utmaningar</h2>
+                        <h2 className="text-2xl font-semibold text-white mb-4">Funktioner</h2>
                         <ul className="list-disc list-inside space-y-2 text-gray-200">
-                            {project.insights?.map((feat, idx) => (
+                            {project.features?.map((feat, idx) => (
                                 <li key={idx}>{feat}</li>
                             ))}
                         </ul>

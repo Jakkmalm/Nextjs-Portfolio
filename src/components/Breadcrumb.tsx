@@ -29,6 +29,7 @@
 
 'use client'
 import { useRouter } from 'next/navigation'
+import { ArrowLeftToLine } from '../lib/icons'
 
 interface BreadcrumbProps {
     backHref?: string      // alternativt använd bara back()
@@ -42,9 +43,10 @@ export default function Breadcrumb({ backHref = '/', items }: BreadcrumbProps) {
         <nav className="flex items-center space-x-2 mb-8 md:space-x-4 md:mb-12">
             <button
                 onClick={() => backHref ? router.push(backHref) : router.back()}
-                className="text-white text-sm hover:underline cursor-pointer"
+                className="flex items-center gap-1 text-white text-sm hover:underline cursor-pointer"
             >
-                ← Tillbaka
+                <ArrowLeftToLine size={16}/>
+                <span>Tillbaka</span>
             </button>
             {items.map((it, i) => (
                 <span

@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   thumbnail: string;
   images?: string[]; // Array of image URLs for project gallery
-  insights?: string[]; // Array of insights or features
+  features?: string[]; // Array of insights or features
   liveUrl?: string;
   repoUrl?: string;
   tags: string[];
@@ -47,7 +47,7 @@ export const projects: Project[] = [
       // "/images/dagenslunchguide-2.png",
       // "/images/dagenslunchguide-3.png",
     ],
-    insights: [
+    features: [
       "Skapat datumbaserad menylogik i PHP för veckomenyer",
       "Använt AJAX i WordPress för sömlös menyuppladdning",
       "Förståelse för WordPress-temastruktur och custom post types",
@@ -75,15 +75,21 @@ export const projects: Project[] = [
   {
     slug: "shoey-react-native",
     title: "React-Native Applikation",
-    description:
-      "En mobilanpassad väderapp som hämtar data från OpenWeatherMap API med snygg UI.",
+    description: "Shoey är en React Native-applikation som visar nyheter om skor hämtade från ett externt API. Appen är kopplad till ett eget Node.js/Express-backend med MongoDB för datalagring, där användaren kan skapa, redigera och ta bort egna skoposter. Genom integration med OpenAI:s API kan användaren dessutom analysera nyhetsartiklar för att identifiera skomodeller och lägga till dem i sin lista – en funktion som förenklar hanteringen av innehåll och förbättrar användarupplevelsen.",
     thumbnail: "/images/shoey-thumb.png",
     images: [
       // "/images/portfolio-1.png",
       // "/images/portfolio-2.png",
       // "/images/portfolio-3.png",
     ],
-    tags: ["React", "API", "JavaScript"],
+    features: [
+      "Hämtar skonyheter via ett tredjeparts-API",
+      "Skapa, redigera och ta bort skor (CRUD)",
+      "OpenAI-integration för text-scanning",
+      "Responsiv och mobiloptimerad UI i React Native",
+      "Använder Expo för snabb utveckling och testning",
+    ],
+    tags: ["React-Native", "openAI", "JavaScript", "MongoDB", "node.js", "Express"],
     repoUrl: "https://github.com/Jakkmalm/MyApp",
   },
   {
@@ -140,7 +146,7 @@ export const techStack: Tech[] = [
   },
   {
     id: "tailwind",
-    name: "Tailwind CSS",
+    name: "Tailwind",
     icon: "/icons/Tailwind-CSS.svg",
   },
   {

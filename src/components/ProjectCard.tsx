@@ -123,7 +123,7 @@ export default function ProjectCard({ project }: Props) {
             className="group hover-star-border relative p-4 h-full flex flex-col bg-white/10 bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg"
         >
             {/* Project Image */}
-            <div className="relative w-full h-66 overflow-hidden rounded-xl">
+            <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
                 <Image
                     src={project.thumbnail}
                     alt={project.title}
