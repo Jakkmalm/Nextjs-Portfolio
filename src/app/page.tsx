@@ -6,7 +6,7 @@ import AboutSection from '../components/AboutSection';
 import TabSection from '../components/TabSection';
 // import ContactForm from '../components/ContactForm';
 import AnimatedSection from '../components/AnimatedSection';
-import { useScrollRestoration } from '@/hooks/useScrollRestoration'; // se tips nedan
+import { useScrollRestoration } from '@/hooks/useScrollRestoration'; 
 
 export default function Page() {
   // Optional: automatiskt återställ scroll från sessionStorage
