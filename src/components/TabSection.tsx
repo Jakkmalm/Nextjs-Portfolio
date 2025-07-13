@@ -59,7 +59,7 @@ export default function TabSection() {
 
   const tabs: { key: TabKey; label: string; icon: React.ElementType }[] = [
     { key: 'projects', label: 'Projekt', icon: BriefcaseBusiness },
-    { key: 'tech', label: 'Erfarenhet', icon: Cpu },
+    { key: 'tech', label: 'Tekniker', icon: Cpu },
     { key: 'other', label: 'Övrigt', icon: Sparkles },
   ];
 

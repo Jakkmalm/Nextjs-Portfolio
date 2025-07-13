@@ -401,182 +401,147 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github } from '../lib/icons';
-import AnimatedSection from './AnimatedSection';
+import { Github, Layers3, Star } from '../lib/icons';
 import { Project } from '../app/data/projects';
+import MiniStatsCard from './MiniStatsCard';
+
 
 interface Props {
     project: Project;
 }
 
 export default function ProjectDetail({ project }: Props) {
-    // const carouselRef = useRef<HTMLDivElement>(null);
-    // const [scrollPercent, setScrollPercent] = useState(0);
-
-    // const keyFeatures = [
-    //     'Customize the message content as needed',
-    //     'Send messages to multiple Discord channels simultaneously',
-    //     'Set custom delay intervals between messages',
-    //     'Runs non-stop with efficient resource usage',
-    // ];
-
-    // const images = project.images ?? [project.thumbnail];
-    // const hasMultiple = images.length > 1;
-
-    // Update scroll indicator
-    // const handleScroll = () => {
-    //     const el = carouselRef.current;
-    //     if (el) {
-    //         const percent = (el.scrollLeft / (el.scrollWidth - el.clientWidth)) * 100;
-    //         setScrollPercent(percent);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     const el = carouselRef.current;
-    //     if (el) {
-    //         el.addEventListener('scroll', handleScroll, { passive: true });
-    //         // initialize
-    //         handleScroll();
-    //         return () => { el.removeEventListener('scroll', handleScroll); };
-    //     }
-    // }, []);
-
     return (
-        <AnimatedSection id="project-detail" className="relative z-10 py-16">
-            <div className="grid lg:grid-cols-2 gap-8 md:grid-cols-2 md:gap-16">
-                {/* Left Column: Info */}
-                <div className="space-y-6 md:space-y-10">
-                    <h1 className="text-4xl font-bold text-white">{project.title}</h1>
-                    <p className="text-lg text-gray-300 leading-relaxed">{project.description}</p>
+        <div id="project-detail" className="relative z-10 py-16 grid lg:grid-cols-2 gap-8 md:grid-cols-2 md:gap-16">
+            {/* Left Column: Info */}
+            <div className="space-y-6 md:space-y-10">
+                <h1 className="text-4xl font-bold text-white">{project.title}</h1>
+                <p className="text-lg text-gray-300 leading-relaxed">{project.description}</p>
 
-                    {/* Stats Blocks */}
-                    <div className="mt-6 flex gap-6">
-                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
-                            <p className="text-2xl font-bold text-white">{project.tags.length}</p>
-                            <p className="mt-1 text-sm text-gray-300 uppercase">Tekniker</p>
-                        </div>
-                        <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center flex-1">
-                            <p className="text-2xl font-bold text-white">{project.features?.length}</p>
-                            <p className="mt-1 text-sm text-gray-300 uppercase">Funktioner</p>
-                        </div>
-                    </div>
+                {/* Stats Blocks */}
+                <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 rounded-xl overflow-hidden">
+                    <MiniStatsCard
+                        icon={Layers3}
+                        value={project.tags.length}
+                        label="Tekniker"
+                    >
 
-                    {/* Action Buttons */}
-                    <div className="mt-6 flex flex-wrap gap-4 ">
-                        {project.liveUrl && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/80 transition"
-                            >
-                                Live Demo
-                            </a>
-                        )}
-                        {project.repoUrl && (
-                            <a
-                                href={project.repoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-6 py-2 border border-accent text-white font-medium rounded-md hover:bg-accent/20 transition"
-                            >
-                                GitHub Repo <Github size={16}/>
-                            </a> 
-                        )}
-                    </div>
+                    </MiniStatsCard>
+                    <MiniStatsCard
+                        icon={Layers3}
+                        value={project.features?.length ?? 0}
+                        label="Funktioner"
+                    >
 
-                    {/* Technologies Used */}
-                    <div className="mt-8">
-                        <h2 className="text-2xl font-semibold text-white mb-4">Tekniker</h2>
-                        <div className="flex flex-wrap gap-2">
-                            {project.tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="hover-star-border px-3 py-1 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
+                    </MiniStatsCard>
+                    {/* <AboutStatsCard
+                        icon={Layers3}
+                        value={project.tags.length}
+                        label="Tekniker"
+                        description="Antal tekniker"
+                        aos='fade-up-right'
+                    />
+                    <AboutStatsCard
+                        value={project.features?.length ?? 0}
+                        label="Funktioner"
+                        description="Antal funktioner"
+                        aos='fade-up-left'
+                    /> */}
                 </div>
 
-                {/* Right Column: Carousel & Key Features */}
-                <div className="space-y-8">
-
-                    <div className="hover-star-border relative w-full h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <Image
-                            fill
-                            src={project.thumbnail}
-                            alt={project.title}
-                            className="h-full w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
-                        />
-
-                        <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl"></div>
-                    </div>
-
-                    {/* Carousel */}
-                    {/* <div className="relative">
-                        {hasMultiple && (
-                            <button
-                                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 transition"
-                                onClick={() => {
-                                    const el = carouselRef.current;
-                                    if (el) el.scrollTo({ left: el.scrollLeft - 300, behavior: 'smooth' });
-                                }}
-                            >
-                                ‹
-                            </button>
-                        )}
-                        <div
-                            ref={carouselRef}
-                            className="rounded-lg flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar"
+                {/* Action Buttons */}
+                <div className="mt-6 flex flex-wrap gap-4 ">
+                    {project.liveUrl && (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/80 transition"
                         >
-                            {images.map((img, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex-shrink-0 snap-center w-full h-100 rounded-lg overflow-hidden shadow-lg bg-black-20 relative"
-                                >
-                                    <Image src={img} alt={`${project.title} screenshot ${idx + 1}`} fill className="object-cover transition:transform duration-600 hover:scale-105" />
-                                </div>
-                            ))}
-                        </div>
-                        {hasMultiple && (
-                            <button
-                                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 transition"
-                                onClick={() => {
-                                    const el = carouselRef.current;
-                                    if (el) el.scrollTo({ left: el.scrollLeft + 300, behavior: 'smooth' });
-                                }}
+                            Live Demo
+                        </a>
+                    )}
+                    {project.repoUrl && (
+                        <a
+                            href={project.repoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover-star-border flex items-center gap-1 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md transition"
+                        >
+                            GitHub Repo <Github size={16} />
+                        </a>
+                    )}
+                </div>
+
+                {/* Technologies Used */}
+                <div className="mt-8">
+                    <h2 className="text-2xl font-semibold text-white mb-4">Tekniker</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="hover-star-border px-3 py-1 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm"
                             >
-                                ›
-                            </button>
-                        )}
-
-                        {/* Scroll Indicator */}
-                    {/* {hasMultiple && (
-                            <div className="mt-2 h-1 bg-white bg-opacity-20 rounded overflow-hidden">
-                                <div
-                                    className="h-1 bg-accent rounded"
-                                    style={{ width: `${scrollPercent}%` }}
-                                />
-                            </div>
-                        )}
-                    </div>  */}
-
-                    {/* Key Features List */}
-                    <div>
-                        <h2 className="text-2xl font-semibold text-white mb-4">Funktioner</h2>
-                        <ul className="list-disc list-inside space-y-2 text-gray-200">
-                            {project.features?.map((feat, idx) => (
-                                <li key={idx}>{feat}</li>
-                            ))}
-                        </ul>
+                                {tag}
+                            </span>
+                        ))}
                     </div>
                 </div>
             </div>
-        </AnimatedSection>
+
+            {/* Right Column: Carousel & Key Features */}
+            <div className="space-y-8">
+
+                <div className="hover-star-border relative w-full h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <Image
+                        fill
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="h-full w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+                    />
+
+                    <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl"></div>
+                </div>
+
+
+                {/* Key Features List */}
+                {/* <div>
+                    <h2 className="text-2xl font-semibold text-white mb-4">Funktioner</h2>
+                    <ul className="list-disc list-inside space-y-2 text-gray-200">
+                        {project.features?.map((feat, idx) => (
+                            <li key={idx}>{feat}</li>
+                        ))}
+                    </ul>
+                </div> */}
+
+                {/* Key Features List */}
+                <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover-star-border transition-colors duration-300 group">
+                    <h2 className="text-xl font-semibold text-white/90 flex items-center gap-3">
+
+                        <Star color='gold' />Funktioner
+                    </h2>
+
+                    <ul className="list-none space-y-2">
+                        {project.features?.map((feat, idx) => (
+                            <li
+                                key={idx}
+                                className="group flex items-start space-x-3 p-2.5 md:p-3.5 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover-star-border"
+                            >
+                                <div className="relative mt-2">
+                                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur group-hover:opacity-100 opacity-0 transition-opacity duration-300"></div>
+                                    <div className="relative w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 group-hover:scale-125 transition-transform duration-300"></div>
+                                </div>
+                                <span className="text-sm md:text-base text-gray-300 group-hover:text-white transition-colors">
+                                    {feat}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
     );
 }

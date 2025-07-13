@@ -103,7 +103,7 @@ export const projects: Project[] = [
       "/images/portfolio-2.png",
       "/images/portfolio-3.png",
     ],
-    tags: ["React", "PDF", "Formik"],
+    tags: ["React",],
     liveUrl: "https://invoicegen.app",
     repoUrl: "https://github.com/jacobost/invoice-generator",
   },

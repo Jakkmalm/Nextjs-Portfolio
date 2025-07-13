@@ -16,6 +16,9 @@ export {
   Settings,
   Phone,
   ArrowLeftToLine,
+  Layers3,
+  CodeXml,
+  Star,
   
 } from "lucide-react";
 

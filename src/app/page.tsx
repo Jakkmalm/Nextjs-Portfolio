@@ -5,8 +5,8 @@ import Splash from '@/components/Splash';
 import AboutSection from '../components/AboutSection';
 import TabSection from '../components/TabSection';
 // import ContactForm from '../components/ContactForm';
-import AnimatedSection from '../components/AnimatedSection';
-import { useScrollRestoration } from '@/hooks/useScrollRestoration'; 
+// import AnimatedSection from '../components/AnimatedSection';
+import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 
 export default function Page() {
   // Optional: automatiskt återställ scroll från sessionStorage
@@ -45,11 +45,18 @@ export default function Page() {
   return (
     <main className="flex flex-col 
                    bg-[#050114]
+                   px-6
               ">
 
       <section id="hero"><Hero /></section>
-      <AnimatedSection id="about" className='relative z-10'><AboutSection /></AnimatedSection>
-      <AnimatedSection id='tab-section' className='relative z-10'><TabSection /></AnimatedSection>           {/* Projects / Tech / Other */}
+      {/* <AnimatedSection id="about" className='relative z-10'><AboutSection /></AnimatedSection>
+      <AnimatedSection id='tab-section' className='relative z-10'><TabSection  /></AnimatedSection>          */}
+
+
+
+
+      <section id="about" className='relative z-10'><AboutSection /></section>
+      <section id='tab-section' className='relative z-10'><TabSection /></section>           {/* Projects / Tech / Other */}
       {/* <section id="contact"><ContactForm/></section> */}
     </main>
   );

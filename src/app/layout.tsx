@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import { Geist, Geist_Mono } from "next/font/google";
+import AOSInit from "../components/AOSInit";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,11 +24,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
+        {/* Initialize AOS for animations */}
+        <AOSInit />
+        {/* Animated background */}
         <AnimatedBackground />
         {/* Main content */}
         {children}

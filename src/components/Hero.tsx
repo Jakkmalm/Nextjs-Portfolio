@@ -139,16 +139,20 @@ export function Hero() {
                         transition={{ delay: 1.0, duration: 0.6 }}
                     >
                         <a
-                            href="#showcase"
+                            onClick={() => {
+                                document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-2 rounded-lg shadow-lg transition"
                         >
                             Projects
                         </a>
                         <a
-                            href="#contact"
+                            onClick={() => {
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             className="inline-block bg-white hover:bg-gray-100 text-gray-900 font-semibold px-6 py-2 rounded-lg shadow-lg transition"
                         >
-                            Contact
+                            Kontakt
                         </a>
                     </motion.div>
                 </div>

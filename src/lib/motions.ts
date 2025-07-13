@@ -1,33 +1,43 @@
-// src/lib/motions.ts
-export const ease = [0.22, 1, 0.36, 1] as const;
-export const duration = 0.6;
+export const ease = [0.25, 1, 0.5, 1] as const; // liknar AOS default: ease-out-cubic
+export const duration = 1.5; // AOS använder t.ex. 1500ms
+export const delay = 0.6; // valfri startfördröjning
 
 export const fadeInUp = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration, ease } },
+  animate: { opacity: 1, y: 0, transition: { duration, ease, delay } },
 };
 
 export const fadeInDown = {
   initial: { opacity: 0, y: -20 },
-  animate: { opacity: 1, y: 0, transition: { duration, ease } },
+  animate: { opacity: 1, y: 0, transition: { duration, ease, delay } },
 };
 
 export const staggerContainer = {
+  initial: {},
   animate: {
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.1,
+      delayChildren: delay, // <-- 0.6 delay innan första barn börjar
     },
   },
 };
 
-export const slideIn = (direction: "left" | "right" | "up" | "down") => ({
+export const slideIn = (direction: 'left' | 'right' | 'up' | 'down') => ({
   initial: {
-    x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
-    y: direction === "up" ? -100 : direction === "down" ? 100 : 0,
+    x: direction === 'left' ? -40 : direction === 'right' ? 40 : 0,
+    y: direction === 'up' ? -40 : direction === 'down' ? 40 : 0,
     opacity: 0,
   },
-  animate: { x: 0, y: 0, opacity: 1, transition: { duration, ease } },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration,
+      delay,
+      ease,
+    },
+  },
 });
 
 // Blob animation variants with repeatType for smoother back-and-forth motion

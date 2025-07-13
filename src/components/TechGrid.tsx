@@ -5,7 +5,7 @@ import { techStack } from '../app/data/projects';
 
 export function TechGrid() {
   return (
-    <div className="grid gap-4 grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+    <div id='techstack' className="grid gap-4 grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
       {techStack.map((t) => (
         <div key={t.id} className="w-full">
           {/* Responsivt kort */}
