@@ -12,7 +12,7 @@ import { projects } from '../app/data/projects';
 
 export default function AboutSection() {
     return (
-        <div className="py-24 min-h-screen container  mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="py-24 min-h-screen container  mx-auto md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Text & Buttons */}
             <div className="space-y-6">
                 <AnimatedHeadline text="About Me" />
