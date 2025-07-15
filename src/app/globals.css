@@ -19,6 +19,7 @@
   }
 }
 
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -27,11 +28,15 @@ body {
 
 /* Dölj scrollbar på element med klassen .hide-scrollbar */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE och Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE och Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 /* Neon glow animation */
@@ -41,6 +46,7 @@ body {
   0% {
     filter: drop-shadow(0 0 12px #00f0ff) hue-rotate(0deg);
   }
+
   100% {
     filter: drop-shadow(0 0 12px #00f0ff) hue-rotate(360deg);
   }
@@ -48,12 +54,15 @@ body {
 
 /* 💓 Pulserande storlek */
 @keyframes pulse-slow {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
-    transform: scale(1.03); /* lite tydligare puls */
+    transform: scale(1.03);
+    /* lite tydligare puls */
   }
 }
 
@@ -70,6 +79,7 @@ body {
     opacity: 0;
     transform: translateY(0.2em);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -85,6 +95,7 @@ body {
     width: 0;
     opacity: 0;
   }
+
   to {
     width: 2.5rem;
     opacity: 1;
@@ -108,14 +119,12 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    #00ffff,
-    #8f00ff,
-    #00ffff,
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      #00ffff,
+      #8f00ff,
+      #00ffff,
+      transparent);
   background-size: 200% 200%;
   background-position: 0% 50%;
   animation: border-glow-spin 2s linear infinite;
@@ -137,6 +146,7 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   100% {
     background-position: 200% 50%;
   }

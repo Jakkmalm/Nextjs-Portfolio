@@ -39,104 +39,81 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
 import AnimatedHeadline from './AnimatedHeadline';
-// import AnimatedSection from './AnimatedSection';
-
 
 export function Hero() {
     const tags = ['React', 'JavaScript', 'Node.js', 'Tailwind'];
-    // Parent som styr stagger och delay
-    const containerVariants: Variants = {
-        hidden: {},
-        visible: {
-            transition: {
-                delayChildren: 0.8,
-                staggerChildren: 0.2,
-            },
-        },
-    };
-
-    // Varje tag: fade + slide-up
-    const tagVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.4, ease: 'easeOut' },
-        },
-    };
-
-
 
     return (
         <section id='hero' className="relative min-h-screen overflow-hidden flex items-center">
             <div className="container mx-auto md:px-8 lg:px-16 flex flex-col lg:flex-row items-center lg:items-start gap-12">
                 {/* Vänsterkolumn */}
                 <div className="flex-1 space-y-6 lg:text-left">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="0"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-out"
                     >
-                        {/* <p className="inline-block bg-white/10 text-sm text-white rounded-full px-3 py-1">
-                            Ready to Innovate
-                        </p> */}
                         <AnimatedHeadline text="Jacob Malmberg" />
-                    </motion.div>
+                    </div>
 
-                    <motion.h1
+                    <h1
                         className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-out"
                     >
                         Fullstack
-                    </motion.h1>
+                    </h1>
 
-                    <motion.p className="text-4xl sm:text-5xl lg:text-6xl font-extrabold  text-indigo-400"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
+                    <p
+                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-out"
                     >
                         Utvecklare
-                    </motion.p>
+                    </p>
 
-                    <motion.p
+                    <p
                         className="text-gray-200 max-w-xl"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
+                        data-aos="fade-up"
+                        data-aos-delay="600"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-out"
                     >
                         Webb &amp; App-utvecklare med fokus på användarupplevelse och prestanda.
                         <br />
                         Skapar innovativa, funktionella och användarvänliga digitala lösningar.
-                    </motion.p>
+                    </p>
 
-                    {/* Taggar med staggerad animation */}
-                    <motion.div
+                    {/* Taggar */}
+                    <div
                         className="flex flex-wrap gap-3 mt-6"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
+                        data-aos="fade-up"
+                        data-aos-delay="800"
+                        data-aos-duration="1200"
+                        data-aos-easing="ease-out"
                     >
                         {tags.map((tag) => (
-                            <motion.span
+                            <span
                                 key={tag}
                                 className="text-xs font-medium bg-white/20 text-white rounded-full px-3 py-1"
-                                variants={tagVariants}
                             >
                                 {tag}
-                            </motion.span>
+                            </span>
                         ))}
-                    </motion.div>
+                    </div>
 
                     {/* Knappar */}
-                    <motion.div
+                    <div
                         className="flex flex-wrap gap-4"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.0, duration: 0.6 }}
+                        data-aos="fade-up"
+                        data-aos-delay="1000"
+                        data-aos-duration="1200"
                     >
                         <a
                             onClick={() => {
@@ -154,15 +131,16 @@ export function Hero() {
                         >
                             Kontakt
                         </a>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Högerkolumn med bild */}
-                <motion.div
+                <div
                     className="flex-1 flex justify-center lg:justify-end"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.2, duration: 0.6, ease: 'easeOut' }}
+                    data-aos="zoom-in"
+                    data-aos-delay="1200"
+                    data-aos-duration="600"
+                    data-aos-easing="ease-out"
                 >
                     <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl ">
                         <Image
@@ -170,10 +148,10 @@ export function Hero() {
                             alt="DevCube Logo"
                             fill
                             className="object-cover z-10 relative animate-neon-glow-pulse"
-                            priority // (valfritt, om bilden ska laddas direkt)
+                            priority
                         />
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

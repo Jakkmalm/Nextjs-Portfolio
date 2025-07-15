@@ -15,11 +15,11 @@ export const TagChips: React.FC<TagChipsProps> = ({ tags, activeTag, onClick }) 
                 <button
                     key={tag}
                     onClick={() => onClick(tag === activeTag ? '' : tag)}
-                    className={`
+                    className={`cursor-pointer
             px-3 py-1 rounded-full text-sm border
             transition
             ${tag === activeTag
-                            ? 'hover-star-border bg-indigo-400 text-white border-none'
+                            ? 'bg-indigo-400 text-white border-none'
                             : 'hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg text-white border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm'}
           `}
                 >

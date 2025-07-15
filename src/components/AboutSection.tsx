@@ -15,13 +15,33 @@ export default function AboutSection() {
         <div className="py-24 min-h-screen container  mx-auto md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Text & Buttons */}
             <div className="space-y-6">
-                <AnimatedHeadline text="About Me" />
+                <AnimatedHeadline text="Om mig" />
 
-                <h2 className="text-4xl font-bold text-white">
-                    Hej, jag heter Jacob Malmberg
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                    <div
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]">
+                            Hej, jag heter
+                        </span>
+                    </div>
+
+                    <div
+                        data-aos="fade-right"
+                        data-aos-delay="100"
+                        data-aos-duration="1200"
+                    >
+                        <span className="block mt-2 text-white">Jacob Malmberg</span>
+                    </div>
                 </h2>
 
-                <p className="text-md text-white leading-relaxed">
+
+                <p
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                    data-aos-duration="1000"
+                    className="text-md text-white leading-relaxed">
                     Jag är en passionerad frontend-utvecklare med fokus på att skapa
                     engagerande och användarvänliga digitala upplevelser. Med erfarenhet
                     av React, Next.js och Tailwind CSS strävar jag alltid efter att
@@ -39,7 +59,7 @@ export default function AboutSection() {
                     </a>
 
                     <button
-                        className="hover-star-border flex items-center gap-2 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md transition cursor-pointer hover:gap-4"
+                        className="hover-star-border flex items-center gap-2 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md cursor-pointer hover:gap-4 transition-all duration-300"
                         onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Mina Projekt <CodeXml size={16} />
@@ -47,14 +67,14 @@ export default function AboutSection() {
 
                 </div>
                 {/* Stats Cards */}
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
 
 
                     <AboutStatsCard
                         icon={CodeXml}
                         value={projects.length}
                         label="Projekt"
-                        description="Byggda från grunden"
+                        description="Byggt från grunden"
                         delay={200}
                         aos="fade-up-right"
                         onClick={() => {
@@ -66,7 +86,7 @@ export default function AboutSection() {
                         value={8}
                         label="Tech Stacks"
                         description="React, Next, Tailwind, m.fl."
-                        delay={400}
+                        delay={200}
                         aos="fade-up"
                         onClick={() => {
                             document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
@@ -77,7 +97,7 @@ export default function AboutSection() {
                         value={3}
                         label="Års erfarenhet"
                         description="Min resa hittills"
-                        delay={600}
+                        delay={200}
                         aos="fade-up-left"
                         onClick={() => {
                             document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });

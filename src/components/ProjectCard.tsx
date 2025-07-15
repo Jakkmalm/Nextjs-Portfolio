@@ -177,7 +177,7 @@
 'use client';
 
 import React from 'react';
-import { SquareArrowOutUpRight } from '../lib/icons';
+import { SquareArrowOutUpRight, ArrowRight } from '../lib/icons';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '../app/data/projects';
@@ -196,7 +196,7 @@ export default function ProjectCard({ project }: Props) {
             data-aos-anchor-placement="top-bottom"
         >
             {/* Project Image */}
-            <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
+            <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                     src={project.thumbnail}
                     alt={project.title}
@@ -218,26 +218,38 @@ export default function ProjectCard({ project }: Props) {
                 </div>
 
                 {/* Footer: Stats & Links */}
-                <div className="flex items-end justify-between mt-4">
+                <div className="flex items-center justify-between mt-4">
                     {project.liveUrl ? (
                         <a
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-white hover:text-white transition flex items-center gap-1"
+                            className="text-sm text-white hover:text-[#00C6FF] transition duration-300 flex items-center gap-1"
                         >
                             Live Demo <SquareArrowOutUpRight size={16} />
                         </a>
                     ) : (
-                        <span className="text-sm text-white italic">No Live Demo</span>
+                        <span className="text-sm text-white italic">Ingen live demo</span>
                     )}
 
+                    {/* <Link
+                        href={`/projects/${project.slug}`}
+                        onClick={() => sessionStorage.setItem('scroll:/', String(window.scrollY))}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/20 transition"
+                    >
+                        Details <ArrowRight size={16} />
+                    </Link> */}
                     <Link
                         href={`/projects/${project.slug}`}
                         onClick={() => sessionStorage.setItem('scroll:/', String(window.scrollY))}
-                        className="inline-block px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/20 transition"
+                        className="relative overflow-hidden px-4 py-2 text-sm text-white bg-white/10 rounded-full backdrop-blur-sm transition duration-500 group/button inline-flex items-center gap-2"
                     >
-                        Details →
+                        <span className="relative z-10">Visa mer</span>
+                        <ArrowRight
+                            size={16}
+                            className="relative z-10 transition-transform duration-500 group-hover/button:translate-x-1"
+                        />
+                        <span className="absolute left-0 top-0 h-full w-0 bg-white/20 transition-all duration-300 ease-in-out group-hover/button:w-full z-0 rounded-full" />
                     </Link>
                 </div>
             </div>

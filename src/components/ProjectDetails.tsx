@@ -401,7 +401,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Layers3, Star } from '../lib/icons';
+import { Github, Layers3, Star, HandHelping } from '../lib/icons';
 import { Project } from '../app/data/projects';
 import MiniStatsCard from './MiniStatsCard';
 
@@ -492,7 +492,7 @@ export default function ProjectDetail({ project }: Props) {
             {/* Right Column: Carousel & Key Features */}
             <div className="space-y-8">
 
-                <div className="hover-star-border relative w-full h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+                <div className="hover-star-border relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <Image
                         fill
@@ -519,7 +519,7 @@ export default function ProjectDetail({ project }: Props) {
                 <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover-star-border transition-colors duration-300 group">
                     <h2 className="text-xl font-semibold text-white/90 flex items-center gap-3">
 
-                        <Star color='gold' />Funktioner
+                        <HandHelping color='gold' size={26} />Funktioner
                     </h2>
 
                     <ul className="list-none space-y-2">
@@ -530,7 +530,7 @@ export default function ProjectDetail({ project }: Props) {
                             >
                                 <div className="relative mt-2">
                                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur group-hover:opacity-100 opacity-0 transition-opacity duration-300"></div>
-                                    <div className="relative w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 group-hover:scale-125 transition-transform duration-300"></div>
+                                    <div className="relative w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-[#00C6FF] to-[#0072FF] group-hover:scale-125 transition-transform duration-300"></div>
                                 </div>
                                 <span className="text-sm md:text-base text-gray-300 group-hover:text-white transition-colors">
                                     {feat}

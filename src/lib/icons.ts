@@ -19,6 +19,7 @@ export {
   Layers3,
   CodeXml,
   Star,
-  
+  HandHelping,
+  ArrowRight,
 } from "lucide-react";
 

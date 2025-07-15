@@ -15,7 +15,7 @@ export default function AnimatedHeadline({ text }: AnimatedHeadlineProps) {
     return (
         <p
             ref={containerRef}
-            className="text-sm text-white uppercase tracking-widest relative flex gap-1"
+            className="text-md text-white uppercase tracking-widest relative flex gap-1"
         >
             {text.split("").map((char, i) => (
                 <span
