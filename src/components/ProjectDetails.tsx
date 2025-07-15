@@ -401,7 +401,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Layers3, Star, HandHelping } from '../lib/icons';
+import { Github, Layers3, HandHelping } from '../lib/icons';
 import { Project } from '../app/data/projects';
 import MiniStatsCard from './MiniStatsCard';
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import AOSInit from "../components/AOSInit";
 import "./globals.css";
