@@ -45,10 +45,10 @@ export function Hero() {
     const tags = ['React', 'JavaScript', 'Node.js', 'Tailwind'];
 
     return (
-        <section id='hero' className="relative min-h-screen overflow-hidden flex items-center">
-            <div className="container mx-auto md:px-8 lg:px-16 flex flex-col lg:flex-row items-center lg:items-start gap-12">
+        <section id='hero' className="relative min-h-screen overflow-hidden flex items-center px-[5%] sm:px-[5%] lg:px-[10%]">
+            <div className="container mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12">
                 {/* Vänsterkolumn */}
-                <div className="flex-1 space-y-6 lg:text-left">
+                <div className="flex-1 lg:text-left">
                     <div
                         data-aos="fade-up"
                         data-aos-delay="0"
@@ -59,7 +59,7 @@ export function Hero() {
                     </div>
 
                     <h1
-                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
+                        className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mt-4"
                         data-aos="fade-up"
                         data-aos-delay="200"
                         data-aos-duration="1000"
@@ -69,7 +69,7 @@ export function Hero() {
                     </h1>
 
                     <p
-                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]"
+                        className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]"
                         data-aos="fade-up"
                         data-aos-delay="400"
                         data-aos-duration="1000"
@@ -79,7 +79,7 @@ export function Hero() {
                     </p>
 
                     <p
-                        className="text-gray-200 max-w-xl"
+                        className="text-gray-200 max-w-xl mt-6"
                         data-aos="fade-up"
                         data-aos-delay="600"
                         data-aos-duration="1000"
@@ -110,7 +110,7 @@ export function Hero() {
 
                     {/* Knappar */}
                     <div
-                        className="flex flex-wrap gap-4"
+                        className="flex flex-wrap gap-4 mt-6"
                         data-aos="fade-up"
                         data-aos-delay="1000"
                         data-aos-duration="1200"
@@ -138,8 +138,8 @@ export function Hero() {
                 <div
                     className="flex-1 flex justify-center lg:justify-end"
                     data-aos="zoom-in"
-                    data-aos-delay="1200"
-                    data-aos-duration="600"
+                    // data-aos-delay="1200"
+                    data-aos-duration="1200"
                     data-aos-easing="ease-out"
                 >
                     <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl ">

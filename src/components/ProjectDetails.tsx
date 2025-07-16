@@ -412,10 +412,10 @@ interface Props {
 
 export default function ProjectDetail({ project }: Props) {
     return (
-        <div id="project-detail" className="relative z-10 py-16 grid lg:grid-cols-2 gap-8 md:grid-cols-2 md:gap-16">
+        <div id="project-detail" className="relative z-10 py-16 grid lg:grid-cols-2 gap-8 md:gap-16">
             {/* Left Column: Info */}
             <div className="space-y-6 md:space-y-10">
-                <h1 className="text-4xl font-bold text-white">{project.title}</h1>
+                <h1 className="text-3xl md:text-6xl font-bold text-white">{project.title}</h1>
                 <p className="text-lg text-gray-300 leading-relaxed">{project.description}</p>
 
                 {/* Stats Blocks */}

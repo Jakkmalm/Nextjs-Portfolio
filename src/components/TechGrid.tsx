@@ -43,7 +43,7 @@ export function TechGrid() {
         return (
           <div key={t.id} className="w-full">
             <div
-              className="hover-star-border aspect-square w-full bg-white/10 rounded-xl flex flex-col items-center justify-around shadow-md backdrop-blur-sm p-4"
+              className="hover-star-border aspect-square w-full bg-white/10 bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg rounded-xl flex flex-col items-center justify-around shadow-md  p-4"
               data-aos={animationType}
               // data-aos-delay={i * 100} // Ökar delay med 100ms per kort
               data-aos-duration="800"

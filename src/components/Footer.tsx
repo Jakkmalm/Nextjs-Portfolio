@@ -9,7 +9,7 @@ export default function Footer() {
 
 
     return (
-        <footer id='footer' className="min-h-screen flex items-center justify-center bg-gray-800 text-white p-8">
+        <footer id='footer' className="flex w-full items-center justify-center text-white">
             <div className="container mx-auto px-4 text-center">
                 <p className="text-sm"> Ditt Företag. Alla rättigheter förbehållna.</p>
             </div>

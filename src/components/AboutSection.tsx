@@ -12,203 +12,100 @@ import { projects } from '../app/data/projects';
 
 export default function AboutSection() {
     return (
-        <div className="py-24 min-h-screen container  mx-auto md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Text & Buttons */}
-            <div className="space-y-6">
-                <AnimatedHeadline text="Om mig" />
+        <section id="about" className="py-24 min-h-screen px-[5%] lg:px-[10%]">
+            {/* Grid för text och bild */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-                    <div
-                        data-aos="fade-right"
-                        data-aos-duration="1000"
-                    >
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]">
-                            Hej, jag heter
-                        </span>
-                    </div>
+                {/* Left: Text & Buttons */}
+                <div className="space-y-6">
+                    <AnimatedHeadline text="Om mig" />
 
-                    <div
-                        data-aos="fade-right"
-                        data-aos-delay="100"
-                        data-aos-duration="1200"
-                    >
-                        <span className="block mt-2 text-white">Jacob Malmberg</span>
-                    </div>
-                </h2>
-
-
-                <p
-                    data-aos="fade-right"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
-                    className="text-md text-white leading-relaxed">
-                    Jag är en passionerad frontend-utvecklare med fokus på att skapa
-                    engagerande och användarvänliga digitala upplevelser. Med erfarenhet
-                    av React, Next.js och Tailwind CSS strävar jag alltid efter att
-                    leverera högkvalitativa och presterande webbapplikationer.
-                </p>
-
-
-                <div className="flex flex-wrap gap-4">
-
-                    <a
-                        href="/path/to/CV.pdf"
-                        className="inline-block px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/10 transition"
-                    >
-                        Ladda ned CV
-                    </a>
-
-                    <button
-                        className="hover-star-border flex items-center gap-2 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md cursor-pointer hover:gap-4 transition-all duration-300"
-                        onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
-                        Mina Projekt <CodeXml size={16} />
-                    </button>
-
-                </div>
-                {/* Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
-
-
-                    <AboutStatsCard
-                        icon={CodeXml}
-                        value={projects.length}
-                        label="Projekt"
-                        description="Byggt från grunden"
-                        delay={200}
-                        aos="fade-up-right"
-                        onClick={() => {
-                            document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    />
-                    <AboutStatsCard
-                        icon={Layers3}
-                        value={8}
-                        label="Tech Stacks"
-                        description="React, Next, Tailwind, m.fl."
-                        delay={200}
-                        aos="fade-up"
-                        onClick={() => {
-                            document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    />
-                    <AboutStatsCard
-                        icon={BookOpen}
-                        value={3}
-                        label="Års erfarenhet"
-                        description="Min resa hittills"
-                        delay={200}
-                        aos="fade-up-left"
-                        onClick={() => {
-                            document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    />
-                    {/* <div className="relative z-10 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between"> */}
-                    {/* Bakgrundsljus inuti kortet */}
-                    {/* <div className="absolute -z-10 inset-0 bg-gradient-to-br from-[#ffffff20] to-[#ffffff05] opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
-
-                        {/* Top Icon-del, valfri – lägg till en ikon här om du vill */}
-                    {/* <div className="flex items-center justify-between mb-4">
-                            <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/10 transition-transform group-hover:rotate-6"> */}
-                    {/* Du kan lägga till en ikon här, ex: */}
-                    {/* <CodeIcon className="w-8 h-8 text-white" /> */}
-                    {/* </div>
-
-                            <span
-                                className="text-4xl font-bold text-white"
-                                data-aos="fade-up-right"
-                                data-aos-delay="300"
-                                data-aos-duration="1000"
-                                data-aos-anchor-placement="top-bottom"
-                            >
-                                <AnimatedCounter to={projects.length} delay={200} duration={500} />
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                        <div data-aos="fade-right" data-aos-duration="1000">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]">
+                                Hej, jag heter
                             </span>
-                        </div> */}
-
-                    {/* Text och undertext */}
-                    {/* <div>
-                            <p
-                                className="text-sm uppercase tracking-wider text-gray-200 mb-2"
-                                data-aos="fade-up"
-                                data-aos-duration="800"
-                                data-aos-anchor-placement="top-bottom"
-                            >
-                                Projekt
-                            </p>
-                            <div className="flex items-center justify-between">
-                                <p
-                                    className="text-xs text-gray-400"
-                                    data-aos="fade-up"
-                                    data-aos-duration="1000"
-                                    data-aos-anchor-placement="top-bottom"
-                                >
-                                    Innovativa gränssnitt & funktion
-                                </p>
-                            </div>
                         </div>
-                    </div> */}
+                        <div data-aos="fade-right" data-aos-duration="1200">
+                            <span className="block mt-2 text-white">Jacob Malmberg</span>
+                        </div>
+                    </h2>
 
-                    {/* <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center overflow-hidden">
+                    <p
+                        data-aos="fade-right"
+                        data-aos-duration="1500"
+                        className="text-md text-white leading-relaxed"
+                    >
+                        Jag är en passionerad frontend-utvecklare med fokus på att skapa
+                        engagerande och användarvänliga digitala upplevelser...
+                    </p>
 
-                        <p
-                            data-aos="fade-up-right"
-                            data-aos-delay="300"
-                            data-aos-duration="1000"
-                            data-aos-anchor-placement="top-bottom"
-                            className="text-3xl font-bold text-white">
-                            <AnimatedCounter to={projects.length} delay={200} duration={500} />
-                        </p>
-
-
-                        <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
-
+                    <div className="flex flex-wrap gap-4">
+                        <a
+                            href="/path/to/CV.pdf"
+                            className="inline-block px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/10 transition"
+                        >
+                            Ladda ned CV
+                        </a>
+                        <button
+                            className="hover-star-border flex items-center gap-2 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md cursor-pointer hover:gap-4 transition-all duration-300"
+                            onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                            Mina Projekt <CodeXml size={16} />
+                        </button>
                     </div>
+                </div>
 
-
-                    <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center overflow-hidden">
-                        <p
-                            data-aos="fade-up"
-                            data-aos-delay="300"
-                            data-aos-duration="1000"
-                            data-aos-anchor-placement="top-bottom"
-                            className="text-3xl font-bold text-white">
-                            <AnimatedCounter to={projects.length} delay={500} duration={500} />
-                        </p>
-                        <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
+                {/* Right: Avatar */}
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    className="flex justify-center lg:justify-end sm:py-0 sm:p-12 py-2"
+                >
+                    <div className="w-64 h-64 bg-gradient-to-br from-purple-600 to-blue-400 rounded-full overflow-hidden shadow-2xl">
+                        <Image
+                            src="/images/avatar.png"
+                            alt="Jacob Malmberg"
+                            width={256}
+                            height={256}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
-
-
-
-
-                    <div className="hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center overflow-hidden">
-                        <p
-                            data-aos="fade-up-left"
-                            data-aos-delay="300"
-                            data-aos-duration="1000"
-                            data-aos-anchor-placement="top-bottom"
-                            className="text-3xl font-bold text-white">
-                            <AnimatedCounter to={projects.length} delay={500} duration={500} />
-                        </p>
-                        <p className="mt-1 text-sm text-gray-200 uppercase">Projects</p>
-                    </div> */}
-
                 </div>
             </div>
 
-            {/* Right Avatar */}
-            <div className="flex justify-center lg:justify-end">
-                <div className="w-64 h-64 bg-gradient-to-br from-purple-600 to-blue-400 rounded-full overflow-hidden shadow-2xl">
-                    {/* Avatar image placeholder */}
-                    <Image
-                        src="/images/avatar.png"
-                        alt="Jacob Malmberg"
-                        width={256}
-                        height={256}
-                        className="w-full h-full object-cover"
-                    />
-                </div>
+            {/* Stats Cards: helbredd */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 cursor-pointer">
+                <AboutStatsCard
+                    icon={CodeXml}
+                    value={projects.length}
+                    label="Projekt"
+                    description="Byggt från grunden"
+                    // delay={200}
+                    aos="fade-up-right"
+                    onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                />
+                <AboutStatsCard
+                    icon={Layers3}
+                    value={8}
+                    label="Tech Stacks"
+                    description="React, Next, Tailwind, m.fl."
+                    // delay={200}
+                    aos="fade-up"
+                    onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                />
+                <AboutStatsCard
+                    icon={BookOpen}
+                    value={4}
+                    label="Års erfarenhet"
+                    description="Min resa hittills"
+                    // delay={200}
+                    aos="fade-up-left"
+                    onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                />
             </div>
-        </div>
+        </section>
+
     );
 }
 

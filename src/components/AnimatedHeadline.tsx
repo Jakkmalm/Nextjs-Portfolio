@@ -10,7 +10,7 @@ interface AnimatedHeadlineProps {
 
 export default function AnimatedHeadline({ text }: AnimatedHeadlineProps) {
     const containerRef = useRef<HTMLParagraphElement>(null)
-    const isInView = useInView(containerRef, { once: true })
+    const isInView = useInView(containerRef, { once: false })
 
     return (
         <p

@@ -66,9 +66,9 @@ export default function TabSection() {
   const activeIndex = tabs.findIndex(t => t.key === active);
 
   return (
-    <section id="showcase" className="py-16 min-h-screen">
+    <section id="showcase" className="py-16 min-h-screen px-[5%] sm:px-[5%] lg:px-[10%]">
 
-      <div className="container mx-auto md:px-8 lg:px-16">
+      <div className="container mx-auto">
         {/* Rubrik */}
         <AnimatedHeadline text="Showcase" />
 
@@ -106,7 +106,7 @@ export default function TabSection() {
         </div>
 
         {/* Active tab content */}
-        <div>
+        <div className='px-4'>
           {active === 'projects' && <ProjectsTab />}
           {active === 'tech' && <TechTab />}
           {active === 'other' && <OtherTab />}

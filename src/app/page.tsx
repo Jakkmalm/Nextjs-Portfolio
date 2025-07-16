@@ -7,6 +7,7 @@ import TabSection from '../components/TabSection';
 // import ContactForm from '../components/ContactForm';
 // import AnimatedSection from '../components/AnimatedSection';
 import { useScrollRestoration } from '@/hooks/useScrollRestoration';
+import Footer from '@/components/Footer';
 
 export default function Page() {
   // Optional: automatiskt återställ scroll från sessionStorage
@@ -43,9 +44,9 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col 
+    <main
+      className="flex flex-col 
                    bg-[#050114]
-                   px-6
               ">
 
       <section id="hero"><Hero /></section>
@@ -57,6 +58,8 @@ export default function Page() {
 
       <section id="about" className='relative z-10'><AboutSection /></section>
       <section id='tab-section' className='relative z-10'><TabSection /></section>           {/* Projects / Tech / Other */}
+
+      <section className='relative z-10 min-h-[20vh]'><Footer /></section>
       {/* <section id="contact"><ContactForm/></section> */}
     </main>
   );
