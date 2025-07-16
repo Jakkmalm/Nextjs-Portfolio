@@ -9,11 +9,18 @@ export default function Footer() {
 
 
     return (
-        <footer id='footer' className="flex w-full items-center justify-center text-white">
-            <div className="container mx-auto px-4 text-center">
-                <p className="text-sm"> Ditt Företag. Alla rättigheter förbehållna.</p>
+        <footer className="w-full min-h-[20vh] text-white relative">
+            <div className="p-6">
+                {/* Övrigt innehåll, som sociala länkar */}
+            </div>
+
+            <div className="absolute bottom-0 left-0 w-full text-center pb-4">
+                <p className="text-sm text-gray-400">
+                    © 2025 Jacob Malmberg. Alla rättigheter förbehållna.
+                </p>
             </div>
         </footer>
+
     );
 }
 

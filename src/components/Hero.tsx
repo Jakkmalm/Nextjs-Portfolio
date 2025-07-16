@@ -1,39 +1,3 @@
-// // src/components/Hero.tsx
-// 'use client';
-
-// import React from 'react';
-// import { motion } from 'framer-motion';
-
-// export function Hero() {
-//     return (
-//         <section className="relative h-screen overflow-hidden">
-//             {/* Entré-animation för rubrik */}
-//             <motion.h1
-//                 className="relative z-10 text-6xl font-bold text-white text-center"
-//                 initial={{ opacity: 0, y: 40 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 transition={{ delay: 0.5, duration: 0.8 }}
-//             >
-//                 Welcome To My Portfolio
-//             </motion.h1>
-
-//             {/* Entré-animation för knapp */}
-//             <motion.button
-//                 className="relative z-10 mt-8 px-8 py-3 bg-white text-black rounded-full block mx-auto"
-//                 initial={{ opacity: 0, y: 40 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 transition={{ delay: 1, duration: 0.8 }}
-//                 onClick={() =>
-//                     document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })
-//                 }
-//             >
-//                 Se Showcase ↓
-//             </motion.button>
-//         </section>
-//     );
-// }
-
-
 // src/components/Hero.tsx
 'use client';
 
@@ -53,37 +17,37 @@ export function Hero() {
                         data-aos="fade-up"
                         data-aos-delay="0"
                         data-aos-duration="1000"
-                        data-aos-easing="ease-out"
+
                     >
                         <AnimatedHeadline text="Jacob Malmberg" />
                     </div>
 
                     <h1
-                        className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mt-4"
+                        className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mt-4"
                         data-aos="fade-up"
                         data-aos-delay="200"
                         data-aos-duration="1000"
-                        data-aos-easing="ease-out"
+
                     >
                         Fullstack
                     </h1>
 
-                    <p
-                        className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]"
+                    <h1
+                        className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]"
                         data-aos="fade-up"
                         data-aos-delay="400"
                         data-aos-duration="1000"
-                        data-aos-easing="ease-out"
+
                     >
                         Utvecklare
-                    </p>
+                    </h1>
 
                     <p
                         className="text-gray-200 max-w-xl mt-6"
                         data-aos="fade-up"
                         data-aos-delay="600"
                         data-aos-duration="1000"
-                        data-aos-easing="ease-out"
+
                     >
                         Webb &amp; App-utvecklare med fokus på användarupplevelse och prestanda.
                         <br />
@@ -96,7 +60,7 @@ export function Hero() {
                         data-aos="fade-up"
                         data-aos-delay="800"
                         data-aos-duration="1200"
-                        data-aos-easing="ease-out"
+
                     >
                         {tags.map((tag) => (
                             <span
@@ -140,7 +104,7 @@ export function Hero() {
                     data-aos="zoom-in"
                     // data-aos-delay="1200"
                     data-aos-duration="1200"
-                    data-aos-easing="ease-out"
+
                 >
                     <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl ">
                         <Image

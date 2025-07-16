@@ -3,7 +3,7 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 // import { Geist, Geist_Mono } from "next/font/google";
 // import { Poppins } from "next/font/google";
 import AOSInit from "../components/AOSInit";
-import { outfit, syne, urbanist } from './fonts'
+import { outfit, syne, urbanist, sora } from './fonts'
 import "./globals.css";
 
 // Fonts
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${syne.variable} ${urbanist.variable} bg-[#050114]`}>
+    <html lang="en" className={`${outfit.variable} ${syne.variable} ${urbanist.variable} ${sora.variable} overflow-x-hidden`}>
       <body
         className="antialiased overflow-x-hidden">
         {/* Initialize AOS for animations */}

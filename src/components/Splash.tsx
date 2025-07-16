@@ -1,113 +1,70 @@
 // src/components/Splash.tsx
-'use client';
+'use client'
 
-import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import React from 'react'
+import { ArrowRight } from '../lib/icons'
 
 interface SplashProps {
-    onContinue: () => void;
+    onContinue: () => void
 }
-
-const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-        transition: {
-            delayChildren: 0.2,
-            staggerChildren: 0.25,
-        },
-    },
-};
-
-// “Welcome” & “to”: fade + slide-up with simple easeOut
-const wordUpVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.4, ease: 'easeOut' },
-    },
-};
-
-// “My”: slide in from left
-const leftSlideVariants: Variants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: { delay: 0.9, duration: 0.4, ease: 'easeOut' },
-    },
-};
-
-// “Portfolio”: slide in from right
-const rightSlideVariants: Variants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: { delay: 0.9, duration: 0.4, ease: 'easeOut' },
-    },
-};
-
-const buttonVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { delay: 1.4, duration: 0.4, ease: 'easeOut' },
-    },
-};
 
 export default function Splash({ onContinue }: SplashProps) {
     return (
         <section className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-blue-600">
-            <motion.div
-                className="flex flex-col items-center mb-8 space-y-2"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-            >
-                {/* Rad 1: “Welcome to” */}
+            {/* Text-container */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+                {/* Rad 1: “Välkommen till” */}
                 <div className="flex">
-                    <motion.span
-                        variants={wordUpVariants}
+                    <span
+                        data-aos="fade-up"
+                        data-aos-delay="0"
                         className="inline-block text-5xl font-bold text-white mr-2"
                     >
                         Välkommen
-                    </motion.span>
-                    <motion.span
-                        variants={wordUpVariants}
+                    </span>
+                    <span
+                        data-aos="fade-up"
+                        data-aos-delay="150"
                         className="inline-block text-5xl font-bold text-white"
                     >
                         till
-                    </motion.span>
+                    </span>
                 </div>
 
-                {/* Rad 2: “My Portfolio” */}
+                {/* Rad 2: “Min Portfolio” */}
                 <div className="flex">
-                    <motion.span
-                        variants={leftSlideVariants}
+                    <span
+                        data-aos="fade-right"
+                        data-aos-delay="300"
                         className="inline-block text-5xl font-bold text-white mr-2"
                     >
                         Min
-                    </motion.span>
-                    <motion.span
-                        variants={rightSlideVariants}
+                    </span>
+                    <span
+                        data-aos="fade-left"
+                        data-aos-delay="450"
                         className="inline-block text-5xl font-bold text-white"
                     >
                         Portfolio
-                    </motion.span>
+                    </span>
                 </div>
-            </motion.div>
+            </div>
 
-            <motion.button
-                className="px-6 py-3 bg-white text-black rounded-full"
-                variants={buttonVariants}
-                initial="hidden"
-                animate="visible"
+            {/* Knapp */}
+            <button
                 onClick={onContinue}
+                data-aos="fade-up"
+                data-aos-delay="650"
+                className="relative overflow-hidden px-6 py-3 text-sm text-white bg-white/10 rounded-full backdrop-blur-sm transition duration-500 group inline-flex items-center gap-4 cursor-pointer"
             >
-                Gå vidare
-            </motion.button>
+                <span className="relative z-10">Gå vidare</span>
+                <ArrowRight
+                    size={16}
+                    className="relative z-10 transition-transform duration-500 group-hover:translate-x-1"
+                />
+                {/* Hover-effekt bakom */}
+                <span className="absolute left-0 top-0 h-full w-0 bg-white/20 transition-all duration-300 ease-in-out group-hover:w-full z-0 rounded-full" />
+            </button>
         </section>
-    );
+    )
 }

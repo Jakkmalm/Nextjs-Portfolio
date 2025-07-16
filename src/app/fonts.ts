@@ -1,5 +1,5 @@
 // fonts.ts
-import { Outfit, Syne, Urbanist } from "next/font/google";
+import { Outfit, Syne, Urbanist, Sora } from "next/font/google";
 
 export const outfit = Outfit({
   subsets: ["latin"],
@@ -15,5 +15,10 @@ export const syne = Syne({
 export const urbanist = Urbanist({
   subsets: ["latin"],
   variable: "--font-urbanist",
+  display: "swap",
+});
+export const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
   display: "swap",
 });

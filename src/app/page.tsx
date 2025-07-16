@@ -45,8 +45,8 @@ export default function Page() {
 
   return (
     <main
-      className="flex flex-col 
-                   bg-[#050114]
+      className="flex flex-col
+      max-w-screen
               ">
 
       <section id="hero"><Hero /></section>
@@ -58,9 +58,9 @@ export default function Page() {
 
       <section id="about" className='relative z-10'><AboutSection /></section>
       <section id='tab-section' className='relative z-10'><TabSection /></section>           {/* Projects / Tech / Other */}
+      {/* <section id="contact"><ContactForm /></section> */}
+      <section className='relative z-10'><Footer /></section>
 
-      <section className='relative z-10 min-h-[20vh]'><Footer /></section>
-      {/* <section id="contact"><ContactForm/></section> */}
     </main>
   );
 }
