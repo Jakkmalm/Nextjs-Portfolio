@@ -36,8 +36,10 @@ export default function AboutSection() {
                         data-aos-duration="1500"
                         className="text-md text-white leading-relaxed"
                     >
-                        Jag är en passionerad frontend-utvecklare med fokus på att skapa
-                        engagerande och användarvänliga digitala upplevelser...
+                        Jag är en nyfiken fullstack-utvecklare som gillar att bygga saker som både ser bra ut och fungerar smidigt.
+                        Med modern teknik i verktygslådan förvandlar jag idéer till webbplatser och appar som känns enkla att använda och kul att interagera med.
+
+                        Jag gillar att dyka ner i både kod och design – från pixelperfekta UI:n till databasschema. Oavsett om det handlar om ett snabbt sidprojekt eller en större applikation, försöker jag alltid hitta en balans mellan form, funktion och prestanda.
                     </p>
 
                     <div className="flex flex-wrap gap-4">
