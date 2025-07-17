@@ -93,19 +93,48 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Jakkmalm/MyApp",
   },
   {
-    slug: "invoice-generator",
-    title: "Faktura Generator för Frilansare",
+    slug: "books-and-quotes",
+    title: "Books & Quotes",
     description:
-      "Skapa snygga PDF-fakturor direkt i webbläsaren med React och html2pdf.",
+      "Books & Quotes är en minimalistisk fullstack-applikation byggd med Angular och TypeScript, där målet varit att lära mig moderna frontend-flöden, autentisering och token-hantering. Applikationen kommunicerar med ett .NET-baserat REST API som ansvarar för användarautentisering och CRUD-funktionalitet för bok-poster. Vid inloggning skapas en JWT-token som returneras till klienten. Token lagras lokalt (tillfälligt i localStorage) och används i headers för att autentisera fortsatta API-anrop.",
     thumbnail: "/images/portfolio-thumb.png",
     images: [
       "/images/portfolio-1.png",
       "/images/portfolio-2.png",
       "/images/portfolio-3.png",
     ],
-    tags: ["React",],
+    features: [
+      "Light/Dark Mode toggle",
+      "JWT-baserad autentisering mot ett externt .NET API",
+      "Skyddade sidor (conditional rendering beroende på auth state)",
+      "CRUD-hantering för böcker och citat (skapa, läsa, uppdatera, ta bort)",
+      "Responsiv design och enkel, tydlig UI/UX med Tailwind CSS",
+    ],
+    tags: ["Angular", ".NET", "TypeScript", "PostgreSQL",],
     liveUrl: "https://invoicegen.app",
-    repoUrl: "https://github.com/jacobost/invoice-generator",
+    repoUrl: "https://github.com/Jakkmalm/angular-books-quotes",
+  },
+  {
+    slug: "dotnet-rest-api",
+    title: "Books & Quotes API (.NET)",
+    description:
+      "Detta projekt är ett robust och välstrukturerat REST API byggt med .NET, utvecklat som backend till fullstack-applikationen Books & Quotes. API:t hanterar hela autentiseringsflödet med JWT-tokens samt CRUD-operationer för böcker och citat. Vid inloggning genereras en JWT-token som returneras till frontend-klienten, där den används för att komma åt skyddade resurser via autentiserade API-anrop. Projektet syftar till att ge en tydlig och säker grundstruktur för framtida .NET-baserade applikationer.",
+    thumbnail: "/images/portfolio-thumb.png",
+    images: [
+      "/images/portfolio-1.png",
+      "/images/portfolio-2.png",
+      "/images/portfolio-3.png",
+    ],
+    features: [
+      "JWT-baserad autentisering med rollstöd",
+      "Skyddade endpoints (Authorize-guards)",
+      "CRUD för Books och Quotes med Entity Framework Core",
+      "API-dokumentation med Swagger",
+      "Strukturerad och utbyggbar kodbas enligt best practices",
+    ],
+    tags: ["C#", ".NET", "JWT", "Entity Framework", "REST API", "PostgreSQL"],
+    liveUrl: "", // Om du hostar API:t publikt kan du lägga till det här
+    repoUrl: "https://github.com/Jakkmalm/book-quotes-api",
   },
 ];
 

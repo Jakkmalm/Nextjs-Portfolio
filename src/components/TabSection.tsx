@@ -44,23 +44,27 @@ export default function TabSection() {
             <button
               key={tab.key}
               onClick={() => setActive(tab.key)}
-              className={`hover:cursor-pointer hover-star-border rounded-xl py-5 text-center font-bold mx-2 transition-colors duration-300 ${active === tab.key ? 'rounded-xl  text-white' : 'text-gray-500 hover:text-white hover:bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg'
+              className={`group hover:cursor-pointer hover-star-border rounded-xl py-5 text-center font-bold mx-2 transition-colors duration-300 ${active === tab.key ? 'rounded-xl  text-white' : 'text-gray-500 hover:text-white hover:bg-gradient-to-br from-purple-800/20 via-[#230a27]/20 to-[#053c54]/20 backdrop-blur-lg'
                 }`}
             >
               <tab.icon
                 size={20}
-                color={active === tab.key ? '#00C6FF' : '#9CA3AF'} // accent vs gray-400
-                className="mx-auto mb-1 transition-colors duration-300"
+                className={`
+                mx-auto mb-1 transition-colors duration-300
+                ${active === tab.key
+                    ? 'text-[#00C6FF]'
+                    : 'text-gray-400 group-hover:text-[#00c8ffbb]'}
+  `}
               />
               {tab.label}
             </button>
           ))}
           {/* Sliding underline indicator */}
           <span
-            className="absolute bottom-0 h-1 bg-white rounded-full transition-transform duration-300"
+            className="absolute bottom-0 h-1 bg-white rounded-full transition-all duration-300 ease-out"
             style={{
-              width: `calc(100% / ${tabs.length})`, // Equal width
-              transform: `translateX(${activeIndex * 100}%)`,
+              width: `calc(100% / ${tabs.length} * 0.8)`,
+              left: `calc(100% / ${tabs.length} * ${activeIndex} + (100% / ${tabs.length} * 0.1))`,
             }}
           />
         </div>

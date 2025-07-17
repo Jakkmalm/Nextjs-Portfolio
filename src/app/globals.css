@@ -15,7 +15,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #171717;
   }
 }
 
@@ -60,18 +60,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7c3aed;
+  background: #5C6BC0;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a78bfa;
+  background: #5C6BC0;
 }
 
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #7c3aed transparent;
+  scrollbar-color: #5C6BC0 transparent;
 }
 
 /* Neon glow animation */
@@ -89,6 +89,7 @@ html {
 
 /* 💓 Pulserande storlek */
 @keyframes pulse-slow {
+
   0%,
   100% {
     transform: scale(1);
@@ -153,14 +154,12 @@ html {
   inset: 0;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    #00ffff,
-    #8f00ff,
-    #00ffff,
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      #00ffff,
+      #8f00ff,
+      #00ffff,
+      transparent);
   background-size: 200% 200%;
   background-position: 0% 50%;
   animation: border-glow-spin 2s linear infinite;

@@ -49,7 +49,7 @@ export default function ProjectCard({ project }: Props) {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-white hover:text-[#00C6FF] transition duration-300 flex items-center gap-1"
+                            className="text-sm text-white hover:text-[#5C6BC0] transition duration-300 flex items-center gap-1"
                         >
                             Live Demo <SquareArrowOutUpRight size={16} />
                         </a>

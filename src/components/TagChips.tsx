@@ -19,7 +19,7 @@ export const TagChips: React.FC<TagChipsProps> = ({ tags, activeTag, onClick }) 
             px-3 py-1 rounded-full text-sm border
             transition
             ${tag === activeTag
-                            ? 'bg-indigo-400 text-white border-none'
+                            ? 'bg-[#5C6BC0] text-white border-none'
                             : 'hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg text-white border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm'}
           `}
                 >

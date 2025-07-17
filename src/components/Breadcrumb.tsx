@@ -32,7 +32,7 @@ export default function Breadcrumb({ backHref = '/', items }: BreadcrumbProps) {
                 <div className="flex items-center gap-x-2">
                     <span className="text-white/50 text-xs lg:text-lg">Projekt</span>
                     <span className="text-white/50"><ChevronRight size={12} /></span>
-                    <span className="text-purple-400 font-bold text-xs lg:text-lg">{items[items.length - 1].label}</span>
+                    <span className="text-[#5C6BC0] font-bold text-xs lg:text-lg">{items[items.length - 1].label}</span>
                 </div>
             )}
         </nav>
