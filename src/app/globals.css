@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* global.css eller specifik komponentstil */
+.dot-background {
+  background-color: white;
+  background-image: radial-gradient(#ccc 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 :root {
   --background: #050114;
   --foreground: #171717;
