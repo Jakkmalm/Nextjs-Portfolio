@@ -25,6 +25,7 @@ export default function ProjectCard({ project }: Props) {
             {/* Project Image */}
             <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
+                    priority
                     onLoad={() => AOS.refresh()}
                     src={project.thumbnail}
                     alt={project.title}
