@@ -4,7 +4,6 @@
 import React from 'react';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { ease } from '@/lib/motions';
-import globals.css from '../app/globals.css';
 /**
  * Animated background with colored, blurred blobs using framer-motion direct animations.
  * Blobs smoothly transition position, scale, and background color.
