@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '../app/data/projects';
 import AOS from 'aos';
-import 'aos/dist/aos.css
+import 'aos/dist/aos.css';
 
 interface Props {
     project: Project;
