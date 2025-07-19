@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${syne.variable} ${urbanist.variable} ${sora.variable} overflow-x-hidden`}>
+    <html lang="en" className={`${outfit.variable} ${syne.variable} ${urbanist.variable} ${sora.variable} dot-background overflow-x-hidden`}>
       <body
         className="antialiased overflow-x-hidden">
         {/* Initialize AOS for animations */}
