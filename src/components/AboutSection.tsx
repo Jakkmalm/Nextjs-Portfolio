@@ -68,6 +68,7 @@ export default function AboutSection() {
                 >
                     <div className="w-64 h-64 bg-gradient-to-br from-purple-600 to-blue-400 rounded-full overflow-hidden shadow-2xl">
                         <Image
+                            priority
                             data-aos="fade-zoom-in"
                             data-aos-duration="800"
                             src="/images/avatar.png"
