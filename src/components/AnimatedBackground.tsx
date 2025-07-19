@@ -4,7 +4,7 @@
 import React from 'react';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { ease } from '@/lib/motions';
-
+import global.css from '../app/global.css
 /**
  * Animated background with colored, blurred blobs using framer-motion direct animations.
  * Blobs smoothly transition position, scale, and background color.
@@ -13,7 +13,7 @@ import { ease } from '@/lib/motions';
 export default function AnimatedBackground() {
     return (
         <LazyMotion features={domAnimation}>
-            <div className="hidden md:block fixed inset-0 overflow-hidden z-0 pointer-events-none filter blur-3xl">
+            <div className="dot-background hidden md:block fixed inset-0 overflow-hidden z-0 pointer-events-none filter blur-3xl">
                 {/* Blob 1: wide horizontal drift, vertical variation, color shift */}
                 <m.div
                     className="absolute w-96 h-96 rounded-full opacity-70"
