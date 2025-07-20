@@ -43,7 +43,7 @@ export function Hero() {
                     </h1>
 
                     <p
-                        className="text-gray-200 max-w-xl mt-6"
+                        className="text-white text-lg max-w-xl mt-6"
                         data-aos="fade-up"
                         data-aos-delay="600"
                         data-aos-duration="1000"
@@ -83,9 +83,9 @@ export function Hero() {
                             onClick={() => {
                                 document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-2 rounded-lg shadow-lg transition"
+                            className="inline-block bg-indigo-500 cursor-pointer hover:bg-indigo-600 text-white font-semibold px-6 py-2 rounded-lg shadow-lg transition"
                         >
-                            Projects
+                            Projekt
                         </a>
                         <a
                             onClick={() => {
@@ -100,7 +100,7 @@ export function Hero() {
 
                 {/* Högerkolumn med bild */}
                 <div
-                    className="flex-1 flex justify-center lg:justify-end"
+                    className="flex-1 flex justify-center lg:justify-center"
                     data-aos="zoom-in"
                     // data-aos-delay="1200"
                     data-aos-duration="1200"

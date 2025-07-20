@@ -12,7 +12,7 @@ export default function TechTab() {
       <p
         data-aos="fade-right"
         data-aos-duration="800"
-        className='mb-2'
+        className='mb-4 text-white'
       >Här är olika tekniker som jag arbetat i och använt för att bygga min portfolio.</p>
       <TechGrid />
     </div>

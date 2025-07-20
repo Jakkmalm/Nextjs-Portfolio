@@ -34,8 +34,18 @@ export default function TabSection() {
           data-aos="fade-right"
           data-aos-duration="800"
           className="mt-4 mb-10 max-w-2xl">
-          <p className="text-white text-md sm:text-lg leading-relaxed">
-            Här hittar du ett urval av mina projekt – med fokus på design, funktionalitet och teknik. Använd flikarna nedan för att utforska olika typer av arbete.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            <div data-aos="fade-right" data-aos-duration="1000">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5C6BC0]">
+                Projekt &
+              </span>
+            </div>
+            <div data-aos="fade-right" data-aos-duration="1200">
+              <span className="block mt-2 text-white">Teknisk portfolio</span>
+            </div>
+          </h2>
+          <p className="text-white text-md sm:text-lg leading-relaxed mt-6">
+            Här hittar du mina projekt – med fokus på design, funktionalitet och teknik. Använd taggarna nedan för att sortera efter tekniker.
           </p>
         </div>
         {/* Tab buttons */}

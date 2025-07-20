@@ -34,7 +34,7 @@ export default function AboutSection() {
                     <p
                         data-aos="fade-right"
                         data-aos-duration="1500"
-                        className="text-md text-white leading-relaxed"
+                        className="text-lg text-white leading-relaxed"
                     >
                         Jag är en nyfiken fullstack-utvecklare som gillar att bygga saker som både ser bra ut och fungerar smidigt.
                         Med modern teknik i verktygslådan förvandlar jag idéer till webbplatser och appar som känns enkla att använda och kul att interagera med.
@@ -64,15 +64,16 @@ export default function AboutSection() {
                 <div
                     data-aos="fade-up"
                     data-aos-duration="1000"
-                    className="flex justify-center lg:justify-end sm:py-0 sm:p-12 py-2"
+                    className="flex justify-center sm:py-0 sm:p-12 py-2"
                 >
                     <div className="w-64 h-64 bg-gradient-to-br from-purple-600 to-blue-400 rounded-full overflow-hidden shadow-2xl">
                         <Image
-                            src="/images/avatar.png"
+                            priority
+                            src="/images/avatar.jpg"
                             alt="Jacob Malmberg"
                             width={256}
                             height={256}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-[center_1%]"
                         />
                     </div>
                 </div>

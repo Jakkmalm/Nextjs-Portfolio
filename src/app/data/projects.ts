@@ -97,12 +97,12 @@ export const projects: Project[] = [
     title: "Books & Quotes",
     description:
       "Books & Quotes är en minimalistisk fullstack-applikation byggd med Angular och TypeScript, där målet varit att lära mig moderna frontend-flöden, autentisering och token-hantering. Applikationen kommunicerar med ett .NET-baserat REST API som ansvarar för användarautentisering och CRUD-funktionalitet för bok-poster. Vid inloggning skapas en JWT-token som returneras till klienten. Token lagras lokalt (tillfälligt i localStorage) och används i headers för att autentisera fortsatta API-anrop.",
-    thumbnail: "/images/portfolio-thumb.png",
-    images: [
-      "/images/portfolio-1.png",
-      "/images/portfolio-2.png",
-      "/images/portfolio-3.png",
-    ],
+    thumbnail: "/images/books-and-quotes.png",
+    // images: [
+    //   "/images/portfolio-1.png",
+    //   "/images/portfolio-2.png",
+    //   "/images/portfolio-3.png",
+    // ],
     features: [
       "Light/Dark Mode toggle",
       "JWT-baserad autentisering mot ett externt .NET API",
@@ -111,20 +111,20 @@ export const projects: Project[] = [
       "Responsiv design och enkel, tydlig UI/UX med Tailwind CSS",
     ],
     tags: ["Angular", ".NET", "TypeScript", "PostgreSQL",],
-    liveUrl: "https://invoicegen.app",
+    liveUrl: "https://jakkmalm.github.io/angular-books-quotes/",
     repoUrl: "https://github.com/Jakkmalm/angular-books-quotes",
   },
   {
     slug: "dotnet-rest-api",
     title: "Books & Quotes API (.NET)",
     description:
-      "Detta projekt är ett robust och välstrukturerat REST API byggt med .NET, utvecklat som backend till fullstack-applikationen Books & Quotes. API:t hanterar hela autentiseringsflödet med JWT-tokens samt CRUD-operationer för böcker och citat. Vid inloggning genereras en JWT-token som returneras till frontend-klienten, där den används för att komma åt skyddade resurser via autentiserade API-anrop. Projektet syftar till att ge en tydlig och säker grundstruktur för framtida .NET-baserade applikationer.",
-    thumbnail: "/images/portfolio-thumb.png",
-    images: [
-      "/images/portfolio-1.png",
-      "/images/portfolio-2.png",
-      "/images/portfolio-3.png",
-    ],
+      "Detta projekt är ett REST API byggt med .NET, utvecklat som backend till fullstack-applikationen Books & Quotes. API:t hanterar hela autentiseringsflödet med JWT-tokens samt CRUD-operationer för bokposter. Vid inloggning genereras en JWT-token som returneras till frontend-klienten, där den används för att komma åt skyddade resurser via autentiserade API-anrop. Projektet syftar till att lära känna och arbeta med API:er i en .NET-miljö med C#, samt att implementera autentisering med JWT (JSON Web Tokens).",
+    thumbnail: "/images/dotnet.api.png",
+    // images: [
+    //   "/images/portfolio-1.png",
+    //   "/images/portfolio-2.png",
+    //   "/images/portfolio-3.png",
+    // ],
     features: [
       "JWT-baserad autentisering med rollstöd",
       "Skyddade endpoints (Authorize-guards)",
@@ -132,8 +132,8 @@ export const projects: Project[] = [
       "API-dokumentation med Swagger",
       "Strukturerad och utbyggbar kodbas enligt best practices",
     ],
-    tags: ["C#", ".NET", "JWT", "Entity Framework", "REST API", "PostgreSQL"],
-    liveUrl: "", // Om du hostar API:t publikt kan du lägga till det här
+    tags: ["C#", ".NET", "JWT", "Entity Framework", "REST API", "PostgreSQL", "Azure"],
+    liveUrl: "https://bookquotesapi-jacob-h0bjcud7apejeea5.swedencentral-01.azurewebsites.net/swagger/",
     repoUrl: "https://github.com/Jakkmalm/book-quotes-api",
   },
 ];
@@ -242,5 +242,10 @@ export const techStack: Tech[] = [
     id: "angular",
     name: "Angular",
     icon: "/icons/Angular.svg",
+  },
+  {
+    id: "dotnet",
+    name: ".NET",
+    icon: "/icons/NET.svg",
   },
 ];
