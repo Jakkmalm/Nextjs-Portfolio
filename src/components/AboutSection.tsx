@@ -34,7 +34,7 @@ export default function AboutSection() {
                     <p
                         data-aos="fade-right"
                         data-aos-duration="1500"
-                        className="text-md text-white leading-relaxed"
+                        className="text-lg text-white leading-relaxed"
                     >
                         Jag är en nyfiken fullstack-utvecklare som gillar att bygga saker som både ser bra ut och fungerar smidigt.
                         Med modern teknik i verktygslådan förvandlar jag idéer till webbplatser och appar som känns enkla att använda och kul att interagera med.
