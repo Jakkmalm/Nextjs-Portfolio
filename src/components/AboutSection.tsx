@@ -85,7 +85,7 @@ export default function AboutSection() {
                     icon={CodeXml}
                     value={projects.length}
                     label="Projekt"
-                    description="Byggt från grunden"
+                    description="Smått & Stort"
                     // delay={200}
                     aos="fade-up-right"
                     onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
@@ -93,8 +93,8 @@ export default function AboutSection() {
                 <AboutStatsCard
                     icon={Layers3}
                     value={8}
-                    label="Tech Stacks"
-                    description="React, Next, Tailwind, m.fl."
+                    label="Tech Stack"
+                    description="Moderna tekniker"
                     // delay={200}
                     aos="fade-up"
                     onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}

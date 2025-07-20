@@ -6,7 +6,9 @@ import 'aos/dist/aos.css';
 
 export default function AOSInit() {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      offset: 20,
+    });
 
     const handleResize = () => AOS.refresh();
     window.addEventListener('resize', handleResize);

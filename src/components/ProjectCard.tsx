@@ -6,6 +6,8 @@ import { SquareArrowOutUpRight, ArrowRight } from '../lib/icons';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '../app/data/projects';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface Props {
     project: Project;
@@ -23,6 +25,8 @@ export default function ProjectCard({ project }: Props) {
             {/* Project Image */}
             <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
+                    priority
+                    onLoad={() => AOS.refresh()}
                     src={project.thumbnail}
                     alt={project.title}
                     fill
