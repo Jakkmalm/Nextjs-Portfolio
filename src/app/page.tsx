@@ -8,7 +8,6 @@ import TabSection from '../components/TabSection';
 // import AnimatedSection from '../components/AnimatedSection';
 import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import Footer from '@/components/Footer';
-import Head from 'next/head';
 
 export default function Page() {
   // Optional: automatiskt återställ scroll från sessionStorage
@@ -44,10 +43,7 @@ export default function Page() {
     return <Splash onContinue={handleContinue} />;
   }
 
-  return (
-    <Head>
-        <meta name="google-site-verification" content="IGGOBkDDOAkrFU3c5a5dT5D5BFhKs_j4qzd4plZYI-E" />
-      </Head>
+  return (    
     <main
       className="flex flex-col
       max-w-screen
