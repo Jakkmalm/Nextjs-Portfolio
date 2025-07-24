@@ -8,7 +8,7 @@ export default function TechTab() {
       <h3
         data-aos="fade-right"
         data-aos-duration="400"
-        className="text-2xl mb-4 text-white">Techssss Stack</h3>
+        className="text-2xl mb-4 text-white">Tekniker</h3>
       <p
         data-aos="fade-right"
         data-aos-duration="800"

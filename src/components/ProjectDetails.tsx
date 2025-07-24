@@ -5,7 +5,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Github, Layers3, HandHelping } from '../lib/icons';
+import { Github, Layers3, HandHelping, SquareArrowOutUpRight } from '../lib/icons';
 import { Project } from '../app/data/projects';
 import MiniStatsCard from './MiniStatsCard';
 
@@ -60,9 +60,10 @@ export default function ProjectDetail({ project }: Props) {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/80 transition"
+                            className="hover-star-border flex items-center gap-1 px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/80 transition"
                         >
                             Live Demo
+                            <SquareArrowOutUpRight size={16} />
                         </a>
                     )}
                     {project.repoUrl && (

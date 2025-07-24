@@ -5,10 +5,10 @@ import React from 'react';
 import Image from 'next/image';
 // import { m } from 'framer-motion';
 import AboutStatsCard from './AboutStatsCard';
-import { Layers3, BookOpen, CodeXml } from '../lib/icons';
+import { Layers3, BookOpen, SquareArrowOutUpRight, CodeXml } from '../lib/icons';
 import AnimatedHeadline from './AnimatedHeadline';
 
-import { projects } from '../app/data/projects';
+import { projects, techStack } from '../app/data/projects';
 
 export default function AboutSection() {
     return (
@@ -44,18 +44,33 @@ export default function AboutSection() {
 
                     <div className="flex flex-wrap gap-4">
                         <a
-                            data-aos="fade-up" data-aos-duration="600"
                             href="/path/to/CV.pdf"
-                            className="inline-block px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/10 transition"
+                            data-aos="fade-up"
+                            data-aos-duration="600"
+                            className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-r from-[#af40ff]/20 via-[#5b42f3]/20 to-[#00ddeb]/20 px-6 py-3 text-white font-medium backdrop-blur-md transition-all duration-300 hover:from-[#af40ff] hover:via-[#5b42f3] hover:to-[#00ddeb] hover:brightness-90"
                         >
-                            Ladda ned CV
+                            <span className="relative z-10 flex items-center gap-2 transition-all duration-300">
+                                Ladda ned CV
+                                <SquareArrowOutUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                            </span>
+
+                            {/* Gradient-fyllning på hover */}
+                            <span className="absolute inset-0 z-0 bg-gradient-to-r from-[#af40ff] via-[#5b42f3] to-[#00ddeb] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                         </a>
                         <button
-                            data-aos="fade-up" data-aos-delay="100" data-aos-duration="600"
-                            className="hover-star-border flex items-center gap-2 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md cursor-pointer hover:gap-4 transition-all duration-300"
-                            onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                            data-aos-duration="800"
+                            className="group hover-star-border flex items-center gap-2 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md cursor-pointer  transition-all duration-500"
+                            onClick={() =>
+                                document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })
+                            }
                         >
-                            Mina Projekt <CodeXml size={16} />
+                            Mina Projekt
+                            <CodeXml
+                                size={16}
+                                className="h-5 w-5 transition-transform duration-500 group-hover:rotate-360"
+                            />
                         </button>
                     </div>
                 </div>
@@ -92,7 +107,7 @@ export default function AboutSection() {
                 />
                 <AboutStatsCard
                     icon={Layers3}
-                    value={8}
+                    value={techStack.length}
                     label="Tech Stack"
                     description="Moderna tekniker"
                     // delay={200}

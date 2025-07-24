@@ -4,6 +4,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedHeadline from './AnimatedHeadline';
+import { Mail } from '../lib/icons';
 
 export function Hero() {
     const tags = ['React', 'JavaScript', 'Node.js', 'Tailwind'];
@@ -83,17 +84,22 @@ export function Hero() {
                             onClick={() => {
                                 document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="inline-block bg-indigo-500 cursor-pointer hover:bg-indigo-600 text-white font-semibold px-6 py-2 rounded-lg shadow-lg transition"
+                            className="cursor-pointer group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-r from-[#af40ff]/20 via-[#5b42f3]/20 to-[#00ddeb]/20 px-6 py-3 text-white font-medium backdrop-blur-md transition-all duration-300 hover:from-[#af40ff] hover:via-[#5b42f3] hover:to-[#00ddeb] hover:brightness-90"
                         >
-                            Projekt
+                            <span className="relative z-10 flex items-center gap-2 transition-all duration-300">
+                                Projekt
+                            </span>
                         </a>
                         <a
                             onClick={() => {
                                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="inline-block bg-white hover:bg-gray-100 text-gray-900 font-semibold px-6 py-2 rounded-lg shadow-lg transition"
+                            className="cursor-pointer inline-block relative inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-semibold px-6 py-2 rounded-lg shadow-lg transition"
                         >
-                            Kontakt
+                            <span className="relative z-10 flex items-center gap-2 transition-all duration-300">
+                                Kontakt
+                                <Mail size={16} />
+                            </span>
                         </a>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Jacob Malmberg Portfolio",
   description: "Created with Next.js by your Next JS Developer",
 };
 
@@ -23,9 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${syne.variable} ${urbanist.variable} ${sora.variable} overflow-x-hidden`}>
-     <head>
-    <meta name="google-site-verification" content="IGGOBkDDOAkrFU3c5a5dT5D5BFhKs_j4qzd4plZYI-E" />
-  </head>
+      <head>
+        <meta name="google-site-verification" content="IGGOBkDDOAkrFU3c5a5dT5D5BFhKs_j4qzd4plZYI-E" />
+      </head>
       <body
         className="antialiased overflow-x-hidden">
         {/* Initialize AOS for animations */}
