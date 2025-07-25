@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import { Analytics } from "@vercel/analytics/next"
 // import { Geist, Geist_Mono } from "next/font/google";
 // import { Poppins } from "next/font/google";
 import AOSInit from "../components/AOSInit";
@@ -34,6 +35,7 @@ export default function RootLayout({
         <AnimatedBackground />
         {/* Main content */}
         {children}
+        <Analytics />
       </body>
     </html>
   );
