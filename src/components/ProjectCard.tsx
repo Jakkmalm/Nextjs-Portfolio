@@ -22,6 +22,12 @@ export default function ProjectCard({ project }: Props) {
             data-aos-duration="1000"
             data-aos-anchor-placement="top-bottom"
         >
+            {project.underConstruction && (
+                <div className="pointer-events-none absolute -right-24 top-6 z-10 rotate-45">
+                    <div className="flex w-[340px] items-center justify-center px-6 py-2.5 text-black shadow-lg ring-1 ring-black/30 [background:repeating-linear-gradient(45deg,#facc15_0_12px,#111827_12px_24px)]">
+                    </div>
+                </div>
+            )}
             {/* Project Image */}
             <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
                 <Image

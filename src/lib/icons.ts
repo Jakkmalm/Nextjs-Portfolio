@@ -22,5 +22,6 @@ export {
   HandHelping,
   ArrowRight,
   ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 

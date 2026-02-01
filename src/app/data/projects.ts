@@ -8,6 +8,7 @@ export interface Project {
   liveUrl?: string;
   repoUrl?: string;
   tags: string[];
+  underConstruction?: boolean;
 }
 
 export interface Certificate {
@@ -37,15 +38,45 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Jakkmalm/Nextjs-Portfolio",
   },
   {
+    slug: "lapstr",
+    title: "Lapstr - Speedway Applikation",
+    description:
+      "En PWA-applikation som digitaliserar tävlingsprotokoll för svensk speedway, tillgänglig både på dator och mobil. Appen gör det möjligt att skapa, hantera och dela protokoll i realtid. Som användare kommer du kunna följa live-resultat, ta del av nyheter om förare och tävlingar och följa allt inom svensk speedway. Utvecklad med React, Shadcn UI och Python för hög prestanda och responsivitet.",
+    thumbnail: "/images/lapstr-thumb.png",
+    images: ["/images/lapstr-3.png", "/images/lapstr-2.png", "/images/lapstr-5.png", "/images/lapstr-7.png"],
+    features: [
+      "Digital hantering av tävlingsprotokoll för Speedway",
+      "Responsiv design för både desktop och mobil",
+    ],
+    tags: ["React", "TypeScript", "Python", "FastAPI", "shadcn UI", "PWA", "MongoDB"],
+    liveUrl: "https://lapstr.se/",
+    // repoUrl: "",
+    underConstruction: true,
+  },
+  {
+    slug: "futurica",
+    title: "Futurica - Mobile Game Android/IOS",
+    description:
+      "Futurica är ett idle-baserat 2D-samlarspel där man låser upp och utvecklar varelser över tid. Varelser skickas på expeditioner för att samla resurser och stärka sina förmågor, vilket används för att förbereda sig inför bossfighter som kräver rätt uppsättning och långsiktig planering. Spelet utspelar sig i en värld uppdelad i olika biomer, där spelarnas sammanlagda aktivitet påverkar veckovisa biome surges. Dessa surges avgör vilka biomer som hamnar i fokus och påverkar tillgängliga belöningar, bossar och drops, vilket gör att spelets tillstånd förändras från vecka till vecka baserat på hur spelarna agerar.",
+    thumbnail: "/images/futurica-loginbg.png",
+    images: ["/images/futurica-loginbg.png", "/images/futurica-creatureDetailModal.png", "/images/futurica-summon.png"],
+    features: [
+      "Idle-baserat samlarspel med strategiska inslag",
+    ],
+    tags: ["React Native", "Expo", "MongoDB", "Fastify", "Node.js"],
+    // liveUrl: "",
+    // repoUrl: "",
+    underConstruction: true,
+  },
+  {
     slug: "dagens-lunchmeny",
     title: "Dagens Lunchmeny",
     description:
       "En användarvänlig lunchguide där besökare snabbt kan hitta dagens menyer från lokala restauranger – filtrerat per stad och veckodag. Byggd i WordPress med skräddarsydd funktionalitet för att leverera snabb, mobilanpassad och överskådlig information.",
     thumbnail: "/images/dagenslunchmeny-thumb.png",
     images: [
-      // "/images/dagenslunchguide-1.png",
-      // "/images/dagenslunchguide-2.png",
-      // "/images/dagenslunchguide-3.png",
+      "/images/dagenslunchguide-2.png",
+      "/images/dagenslunchmeny-thumb.png",
     ],
     features: [
       "Skapat datumbaserad menylogik i PHP för veckomenyer",
@@ -89,7 +120,7 @@ export const projects: Project[] = [
       "Responsiv och mobiloptimerad UI i React Native",
       "Använder Expo för snabb utveckling och testning",
     ],
-    tags: ["React-Native", "openAI", "JavaScript", "MongoDB", "node.js", "Express"],
+    tags: ["React-Native", "openAI", "JavaScript", "MongoDB", "Node.js", "Express"],
     repoUrl: "https://github.com/Jakkmalm/MyApp",
   },
   {
@@ -120,11 +151,11 @@ export const projects: Project[] = [
     description:
       "Detta projekt är ett REST API byggt med .NET, utvecklat som backend till fullstack-applikationen Books & Quotes. API:t hanterar hela autentiseringsflödet med JWT-tokens samt CRUD-operationer för bokposter. Vid inloggning genereras en JWT-token som returneras till frontend-klienten, där den används för att komma åt skyddade resurser via autentiserade API-anrop. Projektet syftar till att lära känna och arbeta med API:er i en .NET-miljö med C#, samt att implementera autentisering med JWT (JSON Web Tokens).",
     thumbnail: "/images/dotnet.api.png",
-    // images: [
-    //   "/images/portfolio-1.png",
-    //   "/images/portfolio-2.png",
-    //   "/images/portfolio-3.png",
-    // ],
+    images: [
+      "/images/dotnet.api.png",
+      "/images/dotnet.api.png",
+      "/images/dotnet.api.png",
+    ],
     features: [
       "JWT-baserad autentisering med rollstöd",
       "Skyddade endpoints (Authorize-guards)",

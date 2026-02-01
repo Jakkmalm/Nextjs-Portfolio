@@ -4,10 +4,10 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import { Github, Layers3, HandHelping, SquareArrowOutUpRight } from '../lib/icons';
+import { Github, Layers3, HandHelping, SquareArrowOutUpRight, Construction } from '../lib/icons';
 import { Project } from '../app/data/projects';
 import MiniStatsCard from './MiniStatsCard';
+import ProjectCarousel from './ProjectCarousel';
 
 
 interface Props {
@@ -19,7 +19,15 @@ export default function ProjectDetail({ project }: Props) {
         <div id="project-detail" className="relative z-10 py-16 grid lg:grid-cols-2 gap-8 md:gap-16">
             {/* Left Column: Info */}
             <div className="space-y-6 md:space-y-10">
-                <h1 className="text-3xl md:text-6xl font-bold text-white">{project.title}</h1>
+                <div className="flex flex-wrap items-center gap-3">
+                    <h1 className="text-3xl md:text-6xl font-bold text-white">{project.title}</h1>
+                    {project.underConstruction && (
+                        <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs md:text-sm font-medium text-amber-200">
+                            <Construction size={14} />
+                            Under utveckling
+                        </span>
+                    )}
+                </div>
                 <p className="text-lg text-gray-300 leading-relaxed">{project.description}</p>
 
                 {/* Stats Blocks */}
@@ -97,17 +105,12 @@ export default function ProjectDetail({ project }: Props) {
             {/* Right Column: Carousel & Key Features */}
             <div className="space-y-8">
 
-                <div className="hover-star-border relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <Image
-                        fill
-                        src={project.thumbnail}
-                        alt={project.title}
-                        className="h-full w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
-                    />
-
-                    <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl"></div>
-                </div>
+                <ProjectCarousel
+                    title={project.title}
+                    thumbnail={project.thumbnail}
+                    images={project.images}
+                    intervalMs={5000}
+                />
 
 
                 {/* Key Features List */}
