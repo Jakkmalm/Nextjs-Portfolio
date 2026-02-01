@@ -59,7 +59,7 @@ export const projects: Project[] = [
     description:
       "Futurica är ett idle-baserat 2D-samlarspel där man låser upp och utvecklar varelser över tid. Varelser skickas på expeditioner för att samla resurser och stärka sina förmågor, vilket används för att förbereda sig inför bossfighter som kräver rätt uppsättning och långsiktig planering. Spelet utspelar sig i en värld uppdelad i olika biomer, där spelarnas sammanlagda aktivitet påverkar veckovisa biome surges. Dessa surges avgör vilka biomer som hamnar i fokus och påverkar tillgängliga belöningar, bossar och drops, vilket gör att spelets tillstånd förändras från vecka till vecka baserat på hur spelarna agerar.",
     thumbnail: "/images/futurica-loginbg.png",
-    images: ["/images/futurica-loginbg.png", "/images/futurica-creatureDetailModal.png", "/images/futurica-summon.png"],
+    images: ["/images/futurica-loginbg.png", "/images/futurica-creatureDetailModal.png", "/images/futurica-surge.png","/images/futurica-summon.png"],
     features: [
       "Idle-baserat samlarspel med strategiska inslag",
     ],

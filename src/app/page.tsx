@@ -4,7 +4,7 @@ import { Hero } from '../components/Hero';
 import Splash from '@/components/Splash';
 import AboutSection from '../components/AboutSection';
 import TabSection from '../components/TabSection';
-// import ContactForm from '../components/ContactForm';
+import ContactSection from '../components/ContactSection';
 // import AnimatedSection from '../components/AnimatedSection';
 import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import Footer from '@/components/Footer';
@@ -58,7 +58,7 @@ export default function Page() {
 
       <section id="about" className='relative z-10'><AboutSection /></section>
       <section id='tab-section' className='relative z-10'><TabSection /></section>           {/* Projects / Tech / Other */}
-      {/* <section id="contact"><ContactForm /></section> */}
+      <ContactSection />
       <section className='relative z-10'><Footer /></section>
 
     </main>
