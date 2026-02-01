@@ -1,13 +1,20 @@
 //src/components/ContactSection.tsx
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ContactForm from './ContactForm';
 import ContactSuccess from './ContactSuccess';
 import AnimatedSection from './AnimatedSection';
 
 export default function ContactSection() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const successDurationMs = 5000;
+
+    useEffect(() => {
+        if (status !== 'success') return;
+        const id = setTimeout(() => setStatus('idle'), successDurationMs);
+        return () => clearTimeout(id);
+    }, [status]);
 
     return (
         <AnimatedSection id="contact" className="relative py-24">
@@ -32,11 +39,11 @@ export default function ContactSection() {
                         data-aos-delay="150"
                         data-aos-duration="1000"
                     >
-                        Har du fragor eller vill samarbeta? Skicka ett meddelande sa hor jag av mig!
+                        Har du frågor? Skicka ett meddelande så hör jag av mig!
                     </p>
 
                     {status === 'success' ? (
-                        <ContactSuccess />
+                        <ContactSuccess durationMs={successDurationMs} />
                     ) : (
                         <ContactForm status={status} setStatus={setStatus} />
                     )}
