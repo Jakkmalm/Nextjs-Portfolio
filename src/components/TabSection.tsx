@@ -2,7 +2,7 @@
 // src/components/TabSection.tsx
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProjectsTab from './ProjectsTab';
 import TechTab from './TechTab';
 import OtherTab from './OtherTab';
@@ -13,6 +13,17 @@ type TabKey = 'projects' | 'tech' | 'other';
 
 export default function TabSection() {
   const [active, setActive] = useState<TabKey>('projects');
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const tab = (e as CustomEvent<string>).detail;
+      if (tab === 'projects' || tab === 'tech' || tab === 'other') {
+        setActive(tab);
+      }
+    };
+    window.addEventListener('showcase-tab', handler);
+    return () => window.removeEventListener('showcase-tab', handler);
+  }, []);
 
   const tabs: { key: TabKey; label: string; icon: React.ElementType }[] = [
     { key: 'projects', label: 'Projekt', icon: BriefcaseBusiness },

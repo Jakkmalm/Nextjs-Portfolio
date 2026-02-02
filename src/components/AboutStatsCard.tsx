@@ -6,6 +6,7 @@ import AnimatedCounter from './AnimatedCounter';
 
 interface AboutStatsCardProps {
     value: number;
+    suffix?: string;
     label: string;
     description: string;
     icon?: LucideIcon;
@@ -16,6 +17,7 @@ interface AboutStatsCardProps {
 
 export default function AboutStatsCard({
     value,
+    suffix,
     label,
     description,
     icon: Icon,
@@ -49,6 +51,7 @@ export default function AboutStatsCard({
                         data-aos-anchor-placement="top-bottom"
                     >
                         <AnimatedCounter to={value} delay={200} />
+                        {suffix && <span className="ml-1">{suffix}</span>}
                     </span>
                 </div>
 

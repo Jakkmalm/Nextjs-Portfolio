@@ -63,7 +63,7 @@ export const projects: Project[] = [
     features: [
       "Idle-baserat samlarspel med strategiska inslag",
     ],
-    tags: ["React Native", "Expo", "MongoDB", "Fastify", "Node.js"],
+    tags: ["React-Native", "Expo", "MongoDB", "Fastify", "Node.js"],
     // liveUrl: "",
     // repoUrl: "",
     underConstruction: true,
