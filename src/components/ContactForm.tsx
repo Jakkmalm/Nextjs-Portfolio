@@ -1,4 +1,4 @@
-// src/components/ContactForm.tsx
+﻿// src/components/ContactForm.tsx
 'use client';
 
 import { FormEvent } from 'react';
@@ -130,7 +130,7 @@ export default function ContactForm({ status, setStatus }: Props) {
                     data-aos-delay="600"
                     data-aos-duration="800"
                 >
-                    Nagot gick fel. Forsok igen senare.
+                    Något gick fel. Försök igen senare.
                 </p>
             )}
         </form>

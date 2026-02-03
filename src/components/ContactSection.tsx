@@ -1,4 +1,4 @@
-//src/components/ContactSection.tsx
+﻿// src/components/ContactSection.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -39,7 +39,7 @@ export default function ContactSection() {
                         data-aos-delay="150"
                         data-aos-duration="1000"
                     >
-                        Har du frågor? Skicka ett meddelande så hör jag av mig!
+                        Har du frågor eller vill samarbeta? Skicka ett meddelande så hör jag av mig!
                     </p>
 
                     {status === 'success' ? (

@@ -1,4 +1,4 @@
-//src/components/ContactSuccess.tsx
+﻿//src/components/ContactSuccess.tsx
 'use client';
 
 interface Props {
@@ -8,7 +8,6 @@ interface Props {
 export default function ContactSuccess({ durationMs }: Props) {
     const delayMs = 500;
     const animMs = Math.max(0, durationMs - delayMs);
-
     return (
         <div
             className="hover-star-border relative overflow-hidden rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-6"
@@ -21,7 +20,7 @@ export default function ContactSuccess({ durationMs }: Props) {
                 <span className="text-xs text-emerald-300/80">Skickat</span>
             </div>
             <p className="text-emerald-100/90">
-                Ditt meddelande är skickat. Jag återkommer så snart jag kan!
+                Ditt meddelande är skickat. Jag återkommer så fort jag kan!
             </p>
 
             <div className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-emerald-200/20">

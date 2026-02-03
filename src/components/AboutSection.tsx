@@ -36,10 +36,10 @@ export default function AboutSection() {
                         data-aos-duration="1500"
                         className="text-lg text-white leading-relaxed"
                     >
-                        Jag ar en nyfiken fullstack-utvecklare som gillar att bygga saker som bade ser bra ut och fungerar smidigt.
-                        Med modern teknik i verktygsladan forvandlar jag ideer till webbplatser och appar som kans enkla att anvanda och kul att interagera med.
+                        Jag är en nyfiken fullstack-utvecklare som gillar att bygga saker som både ser bra ut och fungerar smidigt.
+                        Med modern teknik i verktygslådan förvandlar jag idéer till webbplatser och appar som känns enkla att använda och kul att interagera med.
 
-                        Jag gillar att dyka ner i bade kod och design - fran pixelperfekta UI:n till databasschema. Oavsett om det handlar om ett snabbt sidprojekt eller en storre applikation, forsoker jag alltid hitta en balans mellan form, funktion och prestanda.
+                        Jag gillar att dyka ner i både kod och design - från pixelperfekta UI:n till databasschema. Oavsett om det handlar om ett snabbt sidprojekt eller en större applikation, försöker jag alltid hitta en balans mellan form, funktion och prestanda.
                     </p>
 
                     <div className="flex flex-wrap gap-4">
@@ -99,7 +99,7 @@ export default function AboutSection() {
                     icon={CodeXml}
                     value={projects.length}
                     label="Projekt"
-                    description="Smatt & Stort"
+                    description="Smått & Stort"
                     aos="fade-up-right"
                     onClick={() => {
                         window.dispatchEvent(new CustomEvent('showcase-tab', { detail: 'projects' }));
@@ -121,7 +121,7 @@ export default function AboutSection() {
                     icon={BookOpen}
                     value={Math.max(1, new Date().getFullYear() - 2022)}
                     suffix="+"
-                    label="Ars erfarenhet"
+                    label="Års erfarenhet"
                     description="Min resa hittills"
                     aos="fade-up-left"
                     onClick={() =>
@@ -135,11 +135,11 @@ export default function AboutSection() {
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50">
                     <div className="bg-[#1a1a1a] rounded-3xl shadow-2xl w-full max-w-4xl h-[80vh] p-6 flex flex-col">
                         <div className="flex justify-between items-center">
-                            <h3 className="text-white text-xl font-semibold">Forhandsgranska CV</h3>
+                            <h3 className="text-white text-xl font-semibold">Förhandsgranska CV</h3>
                             <button
                                 onClick={() => setIsPdfOpen(false)}
                                 className="text-white hover:text-gray-300 text-2xl"
-                                aria-label="Stang forhansgranskning"
+                                aria-label="Stäng förhandsgranskning"
                             >
                                 &times;
                             </button>
