@@ -32,7 +32,7 @@ export const projects: Project[] = [
     description:
       "En responsiv portfolio byggd med Next.js och Tailwind CSS, inklusive animationer.",
     thumbnail: "/images/portfolio-thumb.png",
-    images: ["/images/portfolio-2.png", "/images/portfolio-3.png"],
+    // images: ["/images/portfolio-2.png", "/images/portfolio-3.png"],
     tags: ["Next.js", "Tailwind CSS", "TypeScript"],
     liveUrl: "https://nextjs-portfolio-kappa-umber-96.vercel.app/",
     repoUrl: "https://github.com/Jakkmalm/Nextjs-Portfolio",
