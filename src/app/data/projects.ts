@@ -39,9 +39,9 @@ export const projects: Project[] = [
   },
   {
     slug: "lapstr",
-    title: "Lapstr - Speedway Applikation",
+    title: "Lapstr – PWA och nativeapp",
     description:
-      "En PWA-applikation som digitaliserar tävlingsprotokoll för svensk speedway, tillgänglig både på dator och mobil. Appen gör det möjligt att skapa, hantera och dela protokoll i realtid. Som användare kommer du kunna följa live-resultat, ta del av nyheter om förare och tävlingar och följa allt inom svensk speedway. Utvecklad med React, Shadcn UI och Python för hög prestanda och responsivitet.",
+      "Lapstr finns som PWA och nativeapp för svensk speedway och digitaliserar tävlingsprotokoll på dator och mobil. Appen gör det möjligt att skapa, hantera och dela protokoll i realtid. Som användare kommer du kunna följa live-resultat, ta del av nyheter om förare och tävlingar och följa allt inom svensk speedway. Utvecklad med React, Shadcn UI och Python för hög prestanda och responsivitet.",
     thumbnail: "/images/lapstr-1.png",
     images: [
       "/images/lapstr-1.png",
