@@ -18,10 +18,12 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <main className="w-full bg-[#050114] min-h-screen py-8 sm:py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <Breadcrumb
-          backHref="/"
-          items={[{ label: 'Projects', href: '/' }, { label: project.title }]}
-        />
+        <div data-aos="fade-down" data-aos-duration="700">
+          <Breadcrumb
+            backHref="/"
+            items={[{ label: 'Projects', href: '/' }, { label: project.title }]}
+          />
+        </div>
         <ProjectDetail project={project} />
       </div>
     </main>

@@ -8,11 +8,13 @@ import TechTab from './TechTab';
 import OtherTab from './OtherTab';
 import AnimatedHeadline from './AnimatedHeadline';
 import { BriefcaseBusiness, Cpu, Sparkles } from '../lib/icons';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 type TabKey = 'projects' | 'tech' | 'other';
 
 export default function TabSection() {
   const [active, setActive] = useState<TabKey>('projects');
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -81,21 +83,35 @@ export default function TabSection() {
             </button>
           ))}
           {/* Sliding underline indicator */}
-          <span
-            className="absolute bottom-0 h-1 bg-white rounded-full transition-all duration-300 ease-out"
+          <motion.span
+            aria-hidden="true"
+            className="absolute bottom-0 h-1 rounded-full bg-gradient-to-r from-[#00C6FF] to-[#8f00ff] shadow-[0_0_12px_rgba(0,198,255,0.7)]"
+            initial={false}
+            animate={{
+              left: `calc(100% / ${tabs.length} * ${activeIndex} + (100% / ${tabs.length} * 0.1))`,
+            }}
+            transition={reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 34 }}
             style={{
               width: `calc(100% / ${tabs.length} * 0.8)`,
-              left: `calc(100% / ${tabs.length} * ${activeIndex} + (100% / ${tabs.length} * 0.1))`,
             }}
           />
         </div>
 
         {/* Active tab content */}
-        <div className='px-2 sm:px-4'>
-          {active === 'projects' && <ProjectsTab />}
-          {active === 'tech' && <TechTab />}
-          {active === 'other' && <OtherTab />}
-        </div>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={active}
+            className="px-2 sm:px-4"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: reduceMotion ? 0 : 0.22 }}
+          >
+            {active === 'projects' && <ProjectsTab />}
+            {active === 'tech' && <TechTab />}
+            {active === 'other' && <OtherTab />}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

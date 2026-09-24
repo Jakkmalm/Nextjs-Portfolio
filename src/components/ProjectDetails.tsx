@@ -8,6 +8,7 @@ import { Github, Layers3, HandHelping, SquareArrowOutUpRight, Construction } fro
 import { Project } from '../app/data/projects';
 import MiniStatsCard from './MiniStatsCard';
 import ProjectCarousel from './ProjectCarousel';
+import AnimatedTextLines from './AnimatedTextLines';
 
 
 interface Props {
@@ -20,18 +21,39 @@ export default function ProjectDetail({ project }: Props) {
             {/* Left Column: Info */}
             <div className="space-y-6 md:space-y-10">
                 <div className="flex flex-wrap items-center gap-3">
-                    <h1 className="text-3xl md:text-6xl font-bold text-white">{project.title}</h1>
+                    <h1
+                        className="text-3xl md:text-6xl font-bold text-white"
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
+                        {project.title}
+                    </h1>
                     {project.underConstruction && (
-                        <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs md:text-sm font-medium text-amber-200">
+                        <span
+                            className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs md:text-sm font-medium text-amber-200"
+                            data-aos="zoom-in"
+                            data-aos-delay="200"
+                            data-aos-duration="700"
+                        >
                             <Construction size={14} />
                             Under utveckling
                         </span>
                     )}
                 </div>
-                <p className="text-lg text-gray-300 leading-relaxed">{project.description}</p>
+                <AnimatedTextLines
+                    className="text-lg text-gray-300 leading-relaxed"
+                    lines={project.description.split(/(?<=[.!?])\s+/)}
+                    animations={['fade-right', 'fade-left']}
+                    delayStep={100}
+                    duration={900}
+                />
 
                 {/* Stats Blocks */}
-                <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 rounded-xl overflow-hidden">
+                <div
+                    className="grid grid-cols-2 gap-3 md:gap-4 p-3 rounded-xl overflow-hidden"
+                    data-aos="fade-up-right"
+                    data-aos-duration="900"
+                >
                     <MiniStatsCard
                         icon={Layers3}
                         value={project.tags.length}
@@ -62,13 +84,15 @@ export default function ProjectDetail({ project }: Props) {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="mt-6 flex flex-wrap gap-4 ">
+                <div className="mt-6 flex flex-wrap gap-4">
                     {project.liveUrl && (
                         <a
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover-star-border flex items-center gap-1 px-6 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/80 transition"
+                            data-aos="fade-up-right"
+                            data-aos-duration="800"
                         >
                             Live Demo
                             <SquareArrowOutUpRight size={16} />
@@ -80,6 +104,9 @@ export default function ProjectDetail({ project }: Props) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover-star-border flex items-center gap-1 px-6 py-2 backdrop-blur-lg text-white font-medium rounded-md transition"
+                            data-aos="fade-up-left"
+                            data-aos-delay="120"
+                            data-aos-duration="800"
                         >
                             GitHub Repo <Github size={16} />
                         </a>
@@ -88,12 +115,21 @@ export default function ProjectDetail({ project }: Props) {
 
                 {/* Technologies Used */}
                 <div className="mt-8">
-                    <h2 className="text-2xl font-semibold text-white mb-4">Tekniker</h2>
+                    <h2
+                        className="text-2xl font-semibold text-white mb-4"
+                        data-aos="fade-right"
+                        data-aos-duration="800"
+                    >
+                        Tekniker
+                    </h2>
                     <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
+                        {project.tags.map((tag, index) => (
                             <span
                                 key={tag}
-                                className="hover-star-border px-3 py-1 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm"
+                                className="hover-star-border rounded-full border border-white/20 bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 px-3 py-1 text-center text-sm text-white shadow-sm backdrop-blur-lg transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:border-[#00C6FF]/50 hover:shadow-[0_8px_22px_rgba(0,198,255,0.16)]"
+                                data-aos={index % 2 === 0 ? 'fade-up-right' : 'fade-up-left'}
+                                data-aos-delay={index * 60}
+                                data-aos-duration="700"
                             >
                                 {tag}
                             </span>
@@ -105,12 +141,17 @@ export default function ProjectDetail({ project }: Props) {
             {/* Right Column: Carousel & Key Features */}
             <div className="space-y-8">
 
-                <ProjectCarousel
-                    title={project.title}
-                    thumbnail={project.thumbnail}
-                    images={project.images}
-                    intervalMs={5000}
-                />
+                <div
+                    data-aos="fade-left"
+                    data-aos-duration="1100"
+                >
+                    <ProjectCarousel
+                        title={project.title}
+                        thumbnail={project.thumbnail}
+                        images={project.images}
+                        intervalMs={5000}
+                    />
+                </div>
 
 
                 {/* Key Features List */}
@@ -125,7 +166,11 @@ export default function ProjectDetail({ project }: Props) {
 
                 {/* Key Features List */}
                 <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover-star-border transition-colors duration-300 group">
-                    <h2 className="text-xl font-semibold text-white/90 flex items-center gap-3">
+                    <h2
+                        className="text-xl font-semibold text-white/90 flex items-center gap-3"
+                        data-aos="fade-left"
+                        data-aos-delay="100"
+                    >
 
                         <HandHelping color='gold' size={26} />Funktioner
                     </h2>
@@ -135,6 +180,9 @@ export default function ProjectDetail({ project }: Props) {
                             <li
                                 key={idx}
                                 className="group flex items-start space-x-3 p-2.5 md:p-3.5 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover-star-border"
+                                data-aos={idx % 2 === 0 ? 'fade-right' : 'fade-left'}
+                                data-aos-delay={150 + idx * 90}
+                                data-aos-duration="750"
                             >
                                 <div className="relative mt-2">
                                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur group-hover:opacity-100 opacity-0 transition-opacity duration-300"></div>

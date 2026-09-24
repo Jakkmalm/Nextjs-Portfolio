@@ -6,6 +6,7 @@ import Image from 'next/image';
 import AboutStatsCard from './AboutStatsCard';
 import { Layers3, BookOpen, SquareArrowOutUpRight, CodeXml } from '../lib/icons';
 import AnimatedHeadline from './AnimatedHeadline';
+import AnimatedTextLines from './AnimatedTextLines';
 
 import { projects, techStack } from '../app/data/projects';
 
@@ -31,16 +32,18 @@ export default function AboutSection() {
                         </div>
                     </h2>
 
-                    <p
-                        data-aos="fade-right"
-                        data-aos-duration="1500"
+                    <AnimatedTextLines
                         className="text-lg text-white leading-relaxed"
-                    >
-                        Jag är en nyfiken fullstack-utvecklare som gillar att bygga saker som både ser bra ut och fungerar smidigt.
-                        Med modern teknik i verktygslådan förvandlar jag idéer till webbplatser och appar som känns enkla att använda och kul att interagera med.
-
-                        Jag gillar att dyka ner i både kod och design - från pixelperfekta UI:n till databasschema. Oavsett om det handlar om ett snabbt sidprojekt eller en större applikation, försöker jag alltid hitta en balans mellan form, funktion och prestanda.
-                    </p>
+                        lines={[
+                            'Jag är en nyfiken fullstack-utvecklare som gillar att bygga saker som både ser bra ut och fungerar smidigt.',
+                            'Med modern teknik i verktygslådan förvandlar jag idéer till webbplatser och appar som känns enkla att använda och kul att interagera med.',
+                            'Jag gillar att dyka ner i både kod och design - från pixelperfekta UI:n till databasschema.',
+                            'Oavsett om det handlar om ett snabbt sidprojekt eller en större applikation, försöker jag alltid hitta en balans mellan form, funktion och prestanda.',
+                        ]}
+                        animations={['fade-right', 'fade-left']}
+                        delayStep={120}
+                        duration={1000}
+                    />
 
                     <div className="flex flex-wrap gap-4">
                         {/* Button opens PDF preview modal */}

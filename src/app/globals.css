@@ -186,3 +186,39 @@ html {
     background-position: 200% 50%;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes error-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+}
+
+.animate-error-shake {
+  animation: error-shake 280ms ease-out;
+}
+
+@keyframes success-pop {
+  0% { opacity: 0; transform: scale(0.45) rotate(-18deg); }
+  65% { opacity: 1; transform: scale(1.14) rotate(3deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.animate-success-pop {
+  animation: success-pop 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-error-shake,
+  .animate-success-pop {
+    animation: none !important;
+  }
+}

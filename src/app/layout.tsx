@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/next"
 // import { Geist, Geist_Mono } from "next/font/google";
 // import { Poppins } from "next/font/google";
 import AOSInit from "../components/AOSInit";
+import PageTransition from "@/components/PageTransition";
+import ScrollProgress from "@/components/ScrollProgress";
 import { outfit, syne, urbanist, sora } from './fonts'
 import "./globals.css";
 
@@ -31,10 +33,11 @@ export default function RootLayout({
         className="antialiased overflow-x-hidden">
         {/* Initialize AOS for animations */}
         <AOSInit />
+        <ScrollProgress />
         {/* Animated background */}
         <AnimatedBackground />
         {/* Main content */}
-        {children}
+        <PageTransition>{children}</PageTransition>
         <Analytics />
       </body>
     </html>

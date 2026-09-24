@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { ChevronLeft, ChevronRight } from '../lib/icons';
 
 interface Props {
@@ -27,6 +28,15 @@ export default function ProjectCarousel({
   const [paused, setPaused] = useState(false);
   const [previewSrc, setPreviewSrc] = useState<string | null>(null);
   const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const touchLast = useRef({ x: 0, time: 0 });
+  const touchVelocity = useRef(0);
+  const gestureAxis = useRef<'x' | 'y' | null>(null);
+  const dragOffsetRef = useRef(0);
+  const suppressClickUntil = useRef(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerWidth, setContainerWidth] = useState(0);
 
@@ -57,32 +67,93 @@ export default function ProjectCarousel({
 
   const goPrev = useCallback(() => {
     if (slides.length <= 1) return;
+    setHasInteracted(true);
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
   }, [slides.length]);
 
   const goNext = useCallback(() => {
     if (slides.length <= 1) return;
+    setHasInteracted(true);
     setIndex((prev) => (prev + 1) % slides.length);
   }, [slides.length]);
 
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    touchStartX.current = e.touches[0]?.clientX ?? null;
+    const touch = e.touches[0];
+    if (!touch) return;
+
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+    touchLast.current = { x: touch.clientX, time: performance.now() };
+    touchVelocity.current = 0;
+    gestureAxis.current = null;
+    dragOffsetRef.current = 0;
+    setDragOffset(0);
+    setPaused(true);
   };
 
-  const onTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touch = e.touches[0];
     const startX = touchStartX.current;
-    if (startX == null) return;
-    const endX = e.changedTouches[0]?.clientX ?? startX;
-    const delta = endX - startX;
-    const threshold = 40;
-    if (Math.abs(delta) > threshold) {
-      if (delta < 0) {
-        goNext();
-      } else {
-        goPrev();
-      }
+    const startY = touchStartY.current;
+    if (!touch || startX == null || startY == null) return;
+
+    const deltaX = touch.clientX - startX;
+    const deltaY = touch.clientY - startY;
+
+    if (!gestureAxis.current && (Math.abs(deltaX) > 6 || Math.abs(deltaY) > 6)) {
+      gestureAxis.current = Math.abs(deltaX) > Math.abs(deltaY) ? 'x' : 'y';
     }
+
+    if (gestureAxis.current !== 'x') return;
+
+    if (e.cancelable) e.preventDefault();
+    setHasInteracted(true);
+    setIsDragging(true);
+
+    const now = performance.now();
+    const elapsed = now - touchLast.current.time;
+    if (elapsed > 0) {
+      touchVelocity.current = (touch.clientX - touchLast.current.x) / elapsed;
+    }
+    touchLast.current = { x: touch.clientX, time: now };
+
+    const maxDrag = Math.max(containerWidth * 0.7, 220);
+    const nextOffset = Math.max(-maxDrag, Math.min(maxDrag, deltaX));
+    dragOffsetRef.current = nextOffset;
+    setDragOffset(nextOffset);
+  };
+
+  const finishTouch = () => {
+    const delta = dragOffsetRef.current;
+    const velocity = touchVelocity.current;
+    const threshold = Math.min(Math.max(containerWidth * 0.16, 55), 100);
+    const isFlick = Math.abs(delta) > 15 && Math.abs(velocity) > 0.45;
+
+    if (gestureAxis.current === 'x' && Math.abs(delta) > 6) {
+      suppressClickUntil.current = performance.now() + 500;
+    }
+
+    if (gestureAxis.current === 'x' && (Math.abs(delta) >= threshold || isFlick)) {
+      if (delta < 0) goNext();
+      else goPrev();
+    }
+
+    setIsDragging(false);
+    setDragOffset(0);
+    setPaused(false);
+    dragOffsetRef.current = 0;
     touchStartX.current = null;
+    touchStartY.current = null;
+    gestureAxis.current = null;
+    touchVelocity.current = 0;
+  };
+
+  const onTouchEnd = () => {
+    finishTouch();
+  };
+
+  const onTouchCancel = () => {
+    finishTouch();
   };
 
   useEffect(() => {
@@ -93,9 +164,38 @@ export default function ProjectCarousel({
     return () => window.removeEventListener('keydown', onKey);
   }, [previewSrc]);
 
+  useEffect(() => {
+    if (!previewSrc) return;
+
+    const scrollY = window.scrollY;
+    const html = document.documentElement;
+    const body = document.body;
+    const previousHtmlOverflow = html.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    const previousBodyPosition = body.style.position;
+    const previousBodyTop = body.style.top;
+    const previousBodyWidth = body.style.width;
+
+    html.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.width = '100%';
+
+    return () => {
+      html.style.overflow = previousHtmlOverflow;
+      body.style.overflow = previousBodyOverflow;
+      body.style.position = previousBodyPosition;
+      body.style.top = previousBodyTop;
+      body.style.width = previousBodyWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [previewSrc]);
+
   const getOffset = (i: number) => {
     const total = slides.length;
     if (total <= 1) return 0;
+    if (total === 2 && i !== index) return dragOffset > 0 ? -1 : 1;
     let diff = i - index;
     const half = total / 2;
     if (diff > half) diff -= total;
@@ -104,34 +204,54 @@ export default function ProjectCarousel({
   };
 
   return (
+    <>
     <div
-      className="relative w-full overflow-visible group"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
       onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
+      onTouchCancel={onTouchCancel}
       aria-roledescription="carousel"
       aria-label={`${title} gallery`}
+      className="relative w-full overflow-visible group [touch-action:pan-y] cursor-grab active:cursor-grabbing"
     >
+      {slides.length > 1 && (
+        <>
+          <div className="pointer-events-none absolute right-2 top-2 z-40 rounded-full border border-white/15 bg-black/55 px-2.5 py-1 text-xs font-medium tabular-nums text-white/90 backdrop-blur-md">
+            {index + 1} / {slides.length}
+          </div>
+          <div
+            className={`pointer-events-none absolute left-1/2 top-3 z-40 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/45 px-3 py-1.5 text-[11px] text-white/80 backdrop-blur-md transition-all duration-500 sm:text-xs ${
+              hasInteracted ? '-translate-y-2 opacity-0' : 'translate-y-0 opacity-100'
+            }`}
+          >
+            Dra för att bläddra
+          </div>
+        </>
+      )}
       <div ref={containerRef} className="relative w-full overflow-visible max-h-[520px] min-h-[360px]">
         <img
           src={slides[index]}
           alt=""
           className="w-full h-auto max-h-[520px] opacity-0 pointer-events-none select-none"
+          onLoad={() => window.dispatchEvent(new Event('portfolio:layout'))}
         />
         <div className="absolute inset-0 overflow-visible [perspective:1400px]">
           {slides.map((src, i) => {
             const offset = getOffset(i);
             if (Math.abs(offset) > 1) return null;
-            const isActive = offset === 0;
-            const translatePx = offset * (containerWidth * 0.28);
-            const scale = isActive ? 1 : 0.8;
-            const rotate = offset * -28;
-            const opacity = isActive ? 1 : 0.55;
-            const blur = isActive ? 0 : Math.min(6, Math.abs(offset) * 2.5);
-            const z = 30 - Math.abs(offset);
+            const spacing = Math.max(containerWidth * 0.28, 1);
+            const visualOffset = offset + dragOffset / spacing;
+            const distance = Math.min(Math.abs(visualOffset), 1);
+            const translatePx = visualOffset * spacing;
+            const scale = 1 - distance * 0.2;
+            const rotate = visualOffset * -28;
+            const opacity = 1 - distance * 0.45;
+            const blur = Math.min(6, distance * 2.5);
+            const z = Math.round(30 - distance * 10);
             const o = orientation[i] ?? 'landscape';
             const sizeClass =
               o === 'portrait'
@@ -145,6 +265,7 @@ export default function ProjectCarousel({
                 key={`${src}-${i}`}
                 type="button"
                 onClick={() => {
+                  if (performance.now() < suppressClickUntil.current) return;
                   if (i === index) {
                     setPreviewSrc((prev) => (prev === src ? null : src));
                   } else {
@@ -152,7 +273,7 @@ export default function ProjectCarousel({
                   }
                 }}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`absolute left-1/2 top-1/2 flex max-h-[520px] items-center justify-center transition-[transform,opacity,filter] duration-500 ease-out ${sizeClass}`}
+                className={`absolute left-1/2 top-1/2 flex max-h-[520px] items-center justify-center ${isDragging ? 'transition-none' : 'transition-[transform,opacity,filter] duration-500 ease-out'} ${sizeClass}`}
                 style={{
                   transform: `translate(-50%, -50%) translateX(${translatePx}px) scale(${scale}) rotateY(${rotate}deg)`,
                   opacity,
@@ -186,7 +307,10 @@ export default function ProjectCarousel({
             <button
               key={`dot-${i}`}
               type="button"
-              onClick={() => setIndex(i)}
+              onClick={() => {
+                setHasInteracted(true);
+                setIndex(i);
+              }}
               aria-label={`Go to slide ${i + 1}`}
               className={`pointer-events-auto h-2.5 w-2.5 rounded-full border border-white/40 transition-all ${
                 i === index
@@ -221,38 +345,47 @@ export default function ProjectCarousel({
         </>
       )}
 
+      {slides.length > 1 && (
+        <div className="pointer-events-none absolute -bottom-3 left-[8%] right-[8%] z-30 h-0.5 overflow-hidden rounded-full bg-white/10">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-[#00C6FF] to-[#8f00ff] transition-[width] duration-500 ease-out"
+            style={{ width: `${((index + 1) / slides.length) * 100}%` }}
+          />
+        </div>
+      )}
+
+    </div>
+
+    {previewSrc && createPortal(
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6 transition-opacity duration-300 ${
-          previewSrc ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${title} bildförhandsvisning`}
+        className="fixed inset-0 z-[9999] flex touch-none items-center justify-center overflow-hidden overscroll-none bg-[#020106]/90 p-4 backdrop-blur-md sm:p-8"
         onClick={() => setPreviewSrc(null)}
       >
         <div
-          className={`relative max-h-[90vh] max-w-[90vw] transition-transform duration-300 ease-out ${
-            previewSrc ? 'scale-100' : 'scale-90'
-          }`}
+          className="relative flex max-h-[92vh] max-w-[94vw] items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
-          {previewSrc && (
-            <img
-              src={previewSrc}
-              alt={`${title} preview`}
-              className="h-auto max-h-[90vh] w-auto max-w-[90vw] rounded-xl object-contain"
-              onClick={() => setPreviewSrc(null)}
-            />
-          )}
-          {previewSrc && (
-            <button
-              type="button"
-              onClick={() => setPreviewSrc(null)}
-              aria-label="Close preview"
-              className="absolute -right-3 -top-3 h-9 w-9 rounded-full bg-black/70 text-white/90 hover:bg-black/90 transition"
-            >
-              ×
-            </button>
-          )}
+          <img
+            src={previewSrc}
+            alt={`${title} preview`}
+            className="h-auto max-h-[92vh] w-auto max-w-[94vw] rounded-xl object-contain shadow-[0_24px_80px_rgba(0,0,0,0.65)]"
+          />
+          <button
+            type="button"
+            onClick={() => setPreviewSrc(null)}
+            aria-label="Stäng bildförhandsvisning"
+            className="absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/75 text-2xl leading-none text-white shadow-lg transition hover:bg-black sm:-right-4 sm:-top-4"
+          >
+            &times;
+          </button>
         </div>
       </div>
-    </div>
+      ,
+      document.body
+    )}
+    </>
   );
 }

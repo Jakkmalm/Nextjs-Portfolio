@@ -54,10 +54,10 @@ export const TagChips: React.FC<TagChipsProps> = ({ tags, activeTag, onClick }) 
                         key={tag}
                         ref={(el) => { itemRefs.current[i] = el; }}
                         onClick={() => onClick(tag === activeTag ? '' : tag)}
-                        className={`cursor-pointer px-3 py-1 rounded-full text-sm border transition
+                        className={`cursor-pointer px-3 py-1 rounded-full text-sm border transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:scale-[1.03]
                         ${tag === activeTag
-                                ? 'bg-[#5C6BC0] text-white border-none'
-                                : 'hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg text-white border border-white/20 rounded-2xl p-6 text-center text-white rounded-full text-sm'}`}
+                                ? 'bg-[#5C6BC0] text-white border-transparent shadow-[0_6px_18px_rgba(92,107,192,0.35)]'
+                                : 'hover-star-border bg-gradient-to-r from-[#230a27]/70 to-[#053c54]/30 backdrop-blur-lg text-white border-white/20 hover:border-[#00C6FF]/50 hover:shadow-[0_7px_20px_rgba(0,198,255,0.15)]'}`}
                         data-aos={aos}
                         data-aos-delay={i * 40}
                         data-aos-duration="800"

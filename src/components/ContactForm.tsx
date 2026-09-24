@@ -1,7 +1,7 @@
 ﻿// src/components/ContactForm.tsx
 'use client';
 
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 
 interface Props {
     status: 'idle' | 'sending' | 'error' | 'success';
@@ -9,6 +9,8 @@ interface Props {
 }
 
 export default function ContactForm({ status, setStatus }: Props) {
+    const [hasValidationError, setHasValidationError] = useState(false);
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('sending');
@@ -37,7 +39,15 @@ export default function ContactForm({ status, setStatus }: Props) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="grid gap-8 md:gap-7">
+        <form
+            onSubmit={handleSubmit}
+            onInvalid={() => {
+                setHasValidationError(false);
+                window.requestAnimationFrame(() => setHasValidationError(true));
+            }}
+            onInput={() => setHasValidationError(false)}
+            className={`grid gap-8 md:gap-7 ${hasValidationError ? 'animate-error-shake' : ''}`}
+        >
             <div className="grid gap-7 md:gap-6 md:grid-cols-2">
                 <div
                     className="relative"
@@ -51,7 +61,7 @@ export default function ContactForm({ status, setStatus }: Props) {
                         type="text"
                         placeholder=" "
                         required
-                        className="peer hover-star-border w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none transition focus:border-[#5C6BC0]/60 focus:ring-2 focus:ring-[#5C6BC0]/30"
+                        className="peer hover-star-border w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none transition focus:border-[#5C6BC0]/60 focus:ring-2 focus:ring-[#5C6BC0]/30 invalid:not-placeholder-shown:border-red-400/60"
                         disabled={status === 'sending'}
                     />
                     <label
@@ -74,7 +84,7 @@ export default function ContactForm({ status, setStatus }: Props) {
                         type="email"
                         placeholder=" "
                         required
-                        className="peer hover-star-border w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none transition focus:border-[#00C6FF]/60 focus:ring-2 focus:ring-[#00C6FF]/30"
+                        className="peer hover-star-border w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none transition focus:border-[#00C6FF]/60 focus:ring-2 focus:ring-[#00C6FF]/30 invalid:not-placeholder-shown:border-red-400/60"
                         disabled={status === 'sending'}
                     />
                     <label
@@ -98,7 +108,7 @@ export default function ContactForm({ status, setStatus }: Props) {
                     placeholder=" "
                     required
                     rows={6}
-                    className="peer hover-star-border w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none transition focus:border-white/30 focus:ring-2 focus:ring-white/10"
+                    className="peer hover-star-border w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none transition focus:border-white/30 focus:ring-2 focus:ring-white/10 invalid:not-placeholder-shown:border-red-400/60"
                     disabled={status === 'sending'}
                 />
                 <label

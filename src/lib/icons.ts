@@ -23,6 +23,7 @@ export {
   ArrowRight,
   ChevronRight,
   ChevronLeft,
-  ChevronDown
+  ChevronDown,
+  CircleCheck
 } from "lucide-react";
 

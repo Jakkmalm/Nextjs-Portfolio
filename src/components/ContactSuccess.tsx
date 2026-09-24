@@ -1,6 +1,8 @@
 ﻿//src/components/ContactSuccess.tsx
 'use client';
 
+import { CircleCheck } from '../lib/icons';
+
 interface Props {
     durationMs: number;
 }
@@ -15,8 +17,15 @@ export default function ContactSuccess({ durationMs }: Props) {
             data-aos-delay="0"
             data-aos-duration="900"
         >
-            <div className="mb-3 flex items-center justify-between">
-                <h3 className="text-emerald-200 font-semibold">Tack!</h3>
+            <div className="mb-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                    <CircleCheck
+                        aria-hidden="true"
+                        className="animate-success-pop h-9 w-9 text-emerald-300 drop-shadow-[0_0_10px_rgba(110,231,183,0.6)]"
+                        strokeWidth={1.8}
+                    />
+                    <h3 className="text-emerald-200 font-semibold">Tack!</h3>
+                </div>
                 <span className="text-xs text-emerald-300/80">Skickat</span>
             </div>
             <p className="text-emerald-100/90">
